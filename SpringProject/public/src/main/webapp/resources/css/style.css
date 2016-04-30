@@ -1,0 +1,295 @@
+body, header {
+    font-family: "RobotoCondensedRegular";
+}
+/*
+.main {
+    background-image: url(../images/bg3.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+*/
+.top_line {
+    background-color: #424242;
+    height: 27px;
+    color: #fff;
+}
+.top_line a {
+    color: #fff;
+}
+.top_line a:hover {
+    text-decoration: none;
+}
+.header_menu ul {
+    text-align: right;
+}
+.header_menu li {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 28px;
+    padding-top: 3px;
+}
+.logo_block {
+    background: -moz-linear-gradient(bottom, #ececec, #ffffff);
+    background: -o-linear-gradient(bottom, #ececec, #ffffff);
+    background: -ms-linear-gradient(bottom, #ececec, #ffffff);
+    background: -webkit-linear-gradient(bottom,#ececec,#fff);
+    height: 110px;
+}
+.logo {
+    font-size: 53px;
+    padding: 8px 266px;
+}
+.logo p {
+    color: #515151;
+}
+.logo span {
+    color: #f05356;
+}
+.cart_block p {
+    color: #424242;
+    font-size: 25px; 
+    padding-top: 20px;
+    line-height: 30px;
+    border-right: 1px solid #3f3f3f;
+}
+.cart_block span {
+    color: #424242;
+    font-size: 15px;
+    padding: 5px 9px;
+}
+#SUMM {
+    font-family: "RobotoBold";
+    font-size: 25px;
+}
+.checkout_button {
+    border-radius: 3px;
+    background-color: #3f3f3f;
+    color: #fff;
+    font-size: 18px;
+    padding: 1px 11px;
+}
+.logo_block a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.wish_list {
+    padding-top: 23px; 
+    font-size: 20px;
+}
+.wish_list p {
+    line-height: 24px;
+}
+.wish_list span {
+    font-size: 14px;
+    color: #fff;
+    background-color: #f05356;
+    border-radius: 8px;
+    padding: 0px 5px; 
+    margin: 0 1px;
+}
+.category {
+    background-color: #fff;
+}
+.category ul {
+    margin-bottom: 0px;
+    height: 100%;
+}
+.category li {
+    list-style-type: none;
+    display: inline-block;
+}
+.category li a {
+    color: #424242;
+    font-size: 20px;
+    padding: 2px 13px;
+}
+.category li a:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #f05356;
+}
+.category hr {
+    margin-top: 0px;
+}
+.deal_of_the_Month {
+    min-height: 333px;
+    width: 296px;
+    text-align: center;
+    background: -moz-radial-gradient(center, circle contain, #adadad, #585858 );
+    background: -webkit-radial-gradient(center, circle contain, #adadad ,#585858 );
+    background: -o-radial-gradient(center, circle contain, #adadad ,#585858 );
+    background: -ms-radial-gradient(center, circle contain, #adadad ,#585858 );
+    background: radial-gradient(center, circle contain, #adadad ,#585858 );
+    color: #fff;
+    margin-top: -20px;
+}
+.deal_of_the_Month h1 {
+    padding-top: 10px;
+}
+.deal_of_the_Month h4 {
+    font-family: "RobotoLight";
+}
+#price {
+    margin-top: -2px;
+}
+.deal_of_the_Month a {
+    font-family: "RobotoBold";
+    padding: 2px 8px;
+    background-color: #f05356;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+.left_menu {
+    margin-top: 0px;
+    background-color: #fff;
+    max-width: 200px;
+    color: #424242;
+    border: 1px solid #424242;
+}
+.left_menu h2 {
+    font-family: "RobotoLight";
+    margin: 7px 15px; 
+}
+.left_menu li{
+    list-style-type: none;
+    line-height: 25px;
+}
+/*
+.left_menu #navbar {
+    -webkit-padding-start: 0px;
+    -webkit-margin-start: -15px 0 0 0;
+}
+.left_menu #navbar ul {
+     -webkit-padding-start: 20px;
+    -webkit-margin-start: -20px 0 0 0;
+}
+.left_menu #navbar li a.active {
+    color: #fff;
+    text-decoration: none;
+    background-color: #f05356;
+}
+
+.left_menu #navbar li a:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #f05356;
+}
+*/
+.left_menu #navbar li a {
+    color: #424242;
+    font-family: "RobotoBold";
+    font-size: 18px; 
+/*    padding: 3px 117px 3px 51px;*/
+}
+.left_menu #navbar ul li a {
+    color: #424242;
+    font-family: "RobotoLight";
+    font-size: 18px; 
+/*    padding: 3px 80px 3px 51px;*/
+}
+.left_menu li a:hover {
+    text-decoration: none;
+}
+#navbar ul li a{
+    font-family: "RobotoLight";
+    font-size: 17px;
+    margin-left: -20px;
+}
+.tabs {
+    margin: 0px -71px;
+    max-width: 952px;
+}
+.tabs a {
+    font-size: 23px;
+    font-family: "RobotoLight";
+    color: #424242;
+    background-color: #EEEEEE;
+}
+.good_list {
+    background-color: #fff;
+    max-width: 960px;
+    min-height: 715px;
+    border-bottom: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+}
+.good_item {
+    text-align: center;
+}
+.good_list img {
+    height: 175px;
+    width: 120px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.good_item {
+    min-width: 150px;
+    margin-top: 20px;
+    margin-bottom: 17px;
+    margin-left: 35px;
+    list-style-type: none;
+    float: left;
+}
+.good_item a {
+    background: #fff;
+}
+.good_item a:hover{
+    text-decoration: none;
+}
+.good_item h4 {
+    font-family: "RobotoLight";
+}
+.good_item span {
+    font-family: "RobotoBold";
+    font-size: 25px;
+    color: #f05356;
+}
+.footer_category {
+    background-image: url(../images/bg_footer.png);
+    background-size: cover;
+    min-height: 241px;
+    font-family: "RobotoLight";
+    color: #fff;
+}
+.footer_category h6,h5{
+    text-align: center;
+}
+.footer_category li {
+    list-style-type: none;
+    margin-left: -20px;
+}
+.footer_category li a {
+    color: #dedede;
+}
+.footer_category li a:hover {
+    text-decoration: none;
+}
+.bottom {
+    text-align: center;
+    font-family: "RobotoLight";
+}
+.good_item img:hover {
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.good_list h1 {
+    color: #646464;
+    font-family: "RobotoLight";
+    margin: 0 30px;
+    padding: 12px 13px;
+}
+.page_navigation {
+    border: 1px solid #646464;
+    border-radius: 3px;
+}
+.page_navigation li {
+    list-style-type: none;
+    display: inline-block;
+}
+.page_navigation a {
+    background-color: #f05356;
+}
+.page_navigation a:hover {
+    text-decoration: none;
+}

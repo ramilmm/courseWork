@@ -1,0 +1,1 @@
+<h1 style="text-align: center">YOU ARE ADMIN OF THIS BookStore</h1>

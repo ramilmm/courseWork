@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Настройки подключения к БД -->
+        <property name="connection.driver_class">org.postgresql.Driver</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/bookstore</property>
+        <property name="connection.username">postgres</property>
+        <property name="connection.password">0912480a</property>
+
+        <!-- SQL диалект -->
+        <property name="dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+
+        <!-- Максимальное число соединений в пуле -->
+        <property name="connection.pool_size">10</property>
+
+        <!-- Отключение автокоммитов -->
+        <property name="hibernate.connection.autocommit">false</property>
+
+        <!-- Включить автоматическое управление контекстом сессии -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Настройка hibernate на автоматическое обновление структуры БД -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- Вывод в консоль SQL-запросов -->
+        <property name="show_sql">true</property>
+
+        <!-- Подключение объектов сущностей -->
+        <mapping package="mvc.common"/>
+
+        <mapping class="mvc.common.UsersInfo"/>
+        <mapping class="mvc.common.CategoryInfo"/>
+        <mapping class="mvc.common.OrdersInfo"/>
+        <mapping class="mvc.common.Cart"/>
+        <mapping class="mvc.common.AddressInfo"/>
+        <mapping class="mvc.common.GoodInfo"/>
+        <mapping class="mvc.common.ReviewInfo"/>
+
+    </session-factory>
+</hibernate-configuration>

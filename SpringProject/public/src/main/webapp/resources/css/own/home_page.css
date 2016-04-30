@@ -1,0 +1,427 @@
+body, header {
+    font-family: "RobotoCondensedRegular";
+}
+.top_line {
+    background-color: #424242;
+    height: 27px;
+    color: #fff;
+}
+.top_line a {
+    color: #fff;
+}
+.top_line a:hover {
+    text-decoration: none;
+}
+.header_menu ul {
+    text-align: right;
+}
+.header_menu li {
+    list-style-type: none;
+    display: inline-block;
+    padding-left: 28px;
+    padding-top: 3px;
+}
+.logo_block {
+    background: -moz-linear-gradient(bottom, #ececec, #ffffff);
+    background: -o-linear-gradient(bottom, #ececec, #ffffff);
+    background: -ms-linear-gradient(bottom, #ececec, #ffffff);
+    background: -webkit-linear-gradient(bottom,#ececec,#fff);
+    height: 110px;
+}
+.logo {
+    font-size: 53px;
+    padding: 8px 266px;
+}
+.logo p {
+    color: #515151;
+}
+.logo span {
+    color: #f05356;
+}
+.cart_block p {
+    color: #424242;
+    font-size: 25px; 
+    padding-top: 20px;
+    line-height: 30px;
+    border-right: 1px solid #3f3f3f;
+}
+.cart_block span {
+    color: #424242;
+    font-size: 15px;
+    padding: 5px 9px;
+}
+#SUMM {
+    font-family: "RobotoBold";
+    font-size: 25px;
+}
+.checkout_button {
+    border-radius: 3px;
+    background-color: #3f3f3f;
+    color: #fff;
+    font-size: 18px;
+    padding: 1px 11px;
+}
+.logo_block a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+.wish_list {
+    padding-top: 23px; 
+    font-size: 20px;
+}
+.wish_list p {
+    line-height: 24px;
+}
+.wish_list span {
+    font-size: 14px;
+    color: #fff;
+    background-color: #f05356;
+    border-radius: 8px;
+    padding: 0px 5px; 
+    margin: 0 1px;
+}
+.deal_of_the_Month {
+    min-height: 333px;
+    width: 296px;
+    text-align: center;
+    background: -moz-radial-gradient(center, circle contain, #adadad, #585858 );
+    background: -webkit-radial-gradient(center, circle contain, #adadad ,#585858 );
+    background: -o-radial-gradient(center, circle contain, #adadad ,#585858 );
+    background: -ms-radial-gradient(center, circle contain, #adadad ,#585858 );
+    background: radial-gradient(center, circle contain, #adadad ,#585858 );
+    color: #fff;
+    margin-top: -20px;
+}
+.deal_of_the_Month h1 {
+    padding-top: 10px;
+}
+.deal_of_the_Month h4 {
+    font-family: "RobotoLight";
+}
+#price {
+    margin-top: -2px;
+}
+.deal_of_the_Month a.buy-btn {
+    font-family: "RobotoBold";
+    padding: 2px 8px;
+    background-color: #f05356;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+}
+.left_menu {
+    margin-top: 0px;
+    background-color: #fff;
+    max-width: 210px;
+    color: #424242;
+    border: 1px solid #d3d3d3;
+}
+.left_menu h2 {
+    font-family: "RobotoLight";
+    margin: 7px 15px; 
+}
+#navbar > li {
+    list-style-type: none;
+    margin-bottom: 34px;
+}
+#navbar select {
+    margin: 13px -14px;
+}
+#navbar span {
+    margin-left: -20px;
+    font-family: "RobotoLight";
+    font-size: 18px;
+}
+.tabs {
+    margin: 0px -71px;
+    max-width: 952px;
+}
+.tabs a {
+    font-size: 23px;
+    font-family: "RobotoLight";
+    color: #424242;
+    background-color: #EEEEEE;
+}
+.good_list {
+    background-color: #fff;
+    max-width: 960px;
+    min-height: 715px;
+    border-bottom: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    margin-left: 15px;
+}
+.good_item {
+    text-align: center;
+}
+.good_list img {
+    height: 175px;
+    width: 120px;
+    border: 4px solid #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.good_item {
+    min-width: 150px;
+    margin-top: 20px;
+    margin-bottom: 17px;
+    margin-left: 35px;
+    list-style-type: none;
+    float: left;
+}
+.good_item a {
+    background: #fff;
+}
+.good_item a:hover{
+    text-decoration: none;
+}
+.good_item h4{
+    font-family: "RobotoLight";
+}
+.good_item span {
+    font-family: "RobotoBold";
+    font-size: 25px;
+    color: #f05356;
+}
+footer {
+    position: absolute;
+    left:0;
+    bottom:0;
+    height: 100%;
+    width:100%;;
+}
+.footer_category {
+    background-image: url(../../images/bg_footer.png);
+    background-size: cover;
+    min-height: 241px;
+    font-family: "RobotoLight";
+    color: #fff;
+}
+.footer_category h6,h5{
+    text-align: center;
+}
+.footer_category li {
+    list-style-type: none;
+    margin-left: -20px;
+}
+.footer_category li a {
+    color: #dedede;
+}
+.footer_category li a:hover {
+    text-decoration: none;
+    color: #f05356;
+}
+.bottom {
+    text-align: center;
+    font-family: "RobotoLight";
+}
+.good_item img:hover {
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.good_list h1 {
+    color: #646464;
+    font-family: "RobotoLight";
+    margin: 0 30px;
+    padding: 12px 13px;
+}
+.sticky {
+    position: fixed;
+    z-index: 101;
+}
+.stop {
+  position: relative;
+  z-index: 101;
+}
+
+/*
+nav styles
+*/
+.category {
+    background-color: #fff;
+}
+.category ul {
+    margin-bottom: 0px;
+    height: 100%;
+}
+.category li a {
+    color: #424242;
+    font-size: 20px;
+    padding: 2px 13px;
+}
+.category li a:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #f05356;
+}
+.category hr {
+    margin-top: 0px;
+}
+
+#top-nav li{
+    float:left;
+    position:relative;
+    display:block;
+}
+#top-nav li a{
+    display:block;
+    padding: 2px 13px;
+    color:#424242;
+    text-decoration:none;
+     
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+}
+#top-nav li a:hover{
+    color:#fff;
+/*
+    background:#6b0c36;
+    background:rgba(107,12,54,0.75);  Выглядит полупрозрачным 
+    text-decoration:underline;*/
+}
+
+
+
+.slider {
+    z-index: 1;
+}
+
+
+#top-nav ul{
+    list-style:none;
+    position:absolute;
+/*    left:-9999px;  Скрываем за экраном, когда не нужно (данный метод лучше, чем display:none;) */
+    display: none;
+    opacity:0; /* Устанавливаем начальное состояние прозрачности */
+    -webkit-transition:0.25s linear opacity; /* В Webkit выпадающие пункты будут проявляться */
+    z-index: 101;
+    text-align: center;
+    width: 229px
+}
+#top-nav ul li{
+/*    padding-top:1px;  Вводим отступ между li чтобы создать иллюзию разделенных пунктов меню */
+    float:none;
+    background-color: #fff;
+    opacity: 0.9;
+    filter: blur(0.1px);
+}
+#top-nav ul a{
+    white-space:nowrap; /* Останавливаем перенос текста и создаем многострочный выпадающий пункт */
+    display:block;
+    color: #fff;
+}
+#top-nav li:hover ul{ /* Выводим выпадающий пункт при наведении курсора */
+/*    left:0;  Приносим его обратно на экран, когда нужно */
+    display: block;
+    opacity:1;  /*Делаем непрозрачным*/ 
+}
+#top-nav li:hover a{ /* Устанавливаем стили для верхнего уровня, когда выводится выпадающий список */
+    background-color: #fff; 
+    text-decoration:none;
+    color: #000000;
+}
+#top-nav li:hover ul a{ /* Изменяем некоторые стили верхнего уровня при выводе выпадающего пункта */
+    -webkit-transition:-webkit-transform 1.75s linear;
+}
+#top-nav li:hover ul li a:hover{ /* Устанавливаем стили для выпадающих пунктов, когда курсор наводится на конкретный пункт */
+    color: #fff;
+    background-color: #f05356;
+    text-decoration: none;
+    -moz-transform:scale(1.15);
+    -webkit-transform:scale(1.15);
+}
+.filter-item {
+    position: relative;
+}
+.filter-item img {
+    height: 19px;
+    left: 6px;
+    position: absolute;
+    top: 5px;
+    transition: 0.7s;
+}
+.filter-item.active img {
+    -moz-transform: rotate(90deg); /* Для Firefox */
+    -ms-transform: rotate(90deg); /* Для IE */
+    -webkit-transform: rotate(90deg); /* Для Safari, Chrome, iOS */
+    -o-transform: rotate(90deg); /* Для Opera */
+    transform: rotate(90deg);
+}
+.accordion h3 {
+    margin-left: 28px;
+    cursor: pointer;
+}
+.accordion ul {
+    max-height: 200px;
+    overflow: auto;
+}
+.accordion li {
+    font-family: "RobotoLight";
+    list-style-type: none;
+}
+.accordion label {
+    font-family: "RobotoLight";
+    font-size: 15px;
+    margin-left: 5px;
+}
+.accordion input {
+    margin-left: -15px;
+}
+.accordion li {
+    margin-left: -18px;
+}
+/*
+    checkbox customize
+*/
+input[type="checkbox"] {
+    display: none;
+}
+input[type="checkbox"] + label {
+    cursor: pointer;
+    padding-left: 0;
+}
+input[type="checkbox"] + label::before {
+    content: "";
+    display: inline-block;
+    height: 22px;
+    width: 24px;
+    margin: 0 5px 0 0;
+    background: url("../../images/checkboxes.png");
+}
+input[type="checkbox"]:checked + label::before {
+    background-position: 0 -22px;
+}
+
+span#total {
+    font-weight: 700;
+    font-size: 23px;
+}
+#header_items {
+    font-size: 15px;
+    margin-left: -11px;
+}
+a.clearbasket_link {
+    font-size: 11px;
+    color: black;
+}
+a.clearbasket_link:hover {
+    color: black;
+    text-decoration: none;
+}
+a.buy_btn {
+    font-size: 19px;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background-color: #f05356;
+}
+span.item_price {
+    border: 3px solid #f05356;
+    font-size: 19px;
+    margin-left: -5px;
+}
+a.img-btn > img {
+    max-height: 142px;
+    max-width: 101px;
+    margin-bottom: 15px;
+}

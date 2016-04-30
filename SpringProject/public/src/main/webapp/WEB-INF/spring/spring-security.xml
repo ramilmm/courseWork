@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns="http://www.springframework.org/schema/security"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <!-- Static resources such as CSS and JS files are ignored by Spring Security -->
+    <http pattern="/resources/**" security="none" />
+
+    <http auto-config="true" use-expressions="true">
+        <!-- Настраиваем процесс авторизации -->
+        <form-login
+                    login-page="/login"
+                    authentication-failure-url="/login?error=true"/>
+        <!-- Определяем адрес для разлогина, страницу перехода при успешном разлогине
+             и указываем на необходимость очистить сессию пользователя -->
+        <logout logout-url="/logout"
+                logout-success-url="/"
+                invalidate-session="true" />
+        <!-- Задаем шаблоны url адресов доступ к которым ограничен, указываем необходимые права доступа -->
+        <intercept-url pattern="/cabinet**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+        <intercept-url pattern="/admin**" access="hasRole('ROLE_ADMIN')"/>
+        <intercept-url pattern="/write-review**" access="hasAnyRole('ROLE_USER','ROLE_ADMIN')"/>
+        <!--<intercept-url pattern="/login" access="hasRole('ANONYMOUS')"/>-->
+        <!--<intercept-url pattern="/reg" access="hasRole('ANONYMOUS')"/>-->
+        <!-- "Запомнить меня" позволяет при повторном заходе не проходить авторизацию.
+             Маркер, сохраняемый в cookie, конструируется из имени пользователя, пароля,
+             даты истечения срока хранения и секретного ключа. Вся эта информация шифруется с применением алгоритма MD5.
+             2419200 - срок хранения 4 недели-->
+        <remember-me user-service-ref="userDetailsService" key="SpringProject" token-validity-seconds="2419200"/>
+    </http>
+
+    <!-- определяем основной механизм авторизации -->
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="userDetailsService">
+            <!-- сообщаем Spring Security каким образом вычислять
+            хэш от пароля -->
+            <password-encoder hash="md5"/>
+        </authentication-provider>
+    </authentication-manager>
+    <!--<authentication-manager>-->
+        <!--<authentication-provider>-->
+            <!--<user-service>-->
+                <!--<user name="ramil" password="lox" authorities="ROLE_USER"/>-->
+            <!--</user-service>-->
+        <!--</authentication-provider>-->
+
+    <!--</authentication-manager>-->
+
+    <!--&lt;!&ndash; сервис авторизации &ndash;&gt;-->
+    <beans:bean id="userDetailsService" class="com.springapp.mvc.security.MyUserDetailService"/>
+
+</beans:beans>
