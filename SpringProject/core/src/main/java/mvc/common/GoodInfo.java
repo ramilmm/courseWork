@@ -48,6 +48,9 @@ public class GoodInfo {
     @Column(name = "rating")
     private Long rating;
 
+    @Column(name = "discount_rate")
+    private Float discount;
+
     public GoodInfo() {
     }
 
@@ -66,6 +69,8 @@ public class GoodInfo {
         this.description = description;
     }
 
+
+
     public GoodInfo(String name, BigDecimal cost, CategoryInfo category, String status, Long century, String author, String country, Long count, String image, String description, String interesting_facts) {
         this.name = name;
         this.cost = cost;
@@ -80,7 +85,7 @@ public class GoodInfo {
         this.interesting_facts = interesting_facts;
     }
 
-    public GoodInfo(String name, BigDecimal cost, CategoryInfo category, String status, Long century, String author, String country, Long count, String image, String description, String interesting_facts, Long rating) {
+    public GoodInfo(String name, BigDecimal cost, CategoryInfo category, String status, Long century, String author, String country, Long count, String image, String description, String interesting_facts, Long rating, Float discount) {
         this.name = name;
         this.cost = cost;
         this.category = category;
@@ -93,6 +98,7 @@ public class GoodInfo {
         this.description = description;
         this.interesting_facts = interesting_facts;
         this.rating = rating;
+        this.discount = discount;
     }
 
     public Long getId() {
@@ -197,5 +203,13 @@ public class GoodInfo {
 
     public void setRating(Long rating) {
         this.rating = rating;
+    }
+
+    public Float getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Float discount) {
+        this.discount = discount;
     }
 }

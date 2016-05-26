@@ -1,6 +1,7 @@
 package com.springapp.mvc.controllers;
 
 import com.springapp.mvc.aspects.annotation.IncludeMenuInfo;
+import com.springapp.mvc.aspects.annotation.Log;
 import com.springapp.mvc.form.RegistrationFormBean;
 import com.springapp.mvc.mail.Sender;
 import mvc.common.UsersInfo;
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @Controller
 @RequestMapping("/reg")
@@ -29,7 +31,6 @@ public class RegistrationController {
     private HttpServletRequest request;
     @Autowired
     private UserService userService;
-
     /**
      * Отображение страницы регистрации
      */
@@ -48,6 +49,7 @@ public class RegistrationController {
      * Отправка письма с ссылкой для подтверждения регистрации
      * Без подтвреждения регистрации пользователь не сможет авторизоваться
      */
+    @Log
     @IncludeMenuInfo
     @RequestMapping(method = RequestMethod.POST)
     public String registrationForm(
@@ -55,6 +57,10 @@ public class RegistrationController {
             BindingResult bindingResult,
             Model model) {
         if (bindingResult.hasErrors()) {
+            return "registration/registrationPage";
+        }
+        if (!regBean.getPassword().equals(regBean.getConfirmPassword())){
+            model.addAttribute("error","Passwords don`t match");
             return "registration/registrationPage";
         }
         if(userService.getByLogin(regBean.getEmail()) != null){
@@ -70,7 +76,7 @@ public class RegistrationController {
                 "Для подтверждения регистрации пройдте по ссылке : http://localhost:8081/reg/activate?id="+ user_id + "\n" +
                 "Ваш логин : "+regBean.getEmail(),"bookstoreitis@gmail.com",regBean.getEmail());
 
-        System.out.println(regBean);
+//        System.out.println(regBean);
         return "redirect:/";
     }
 

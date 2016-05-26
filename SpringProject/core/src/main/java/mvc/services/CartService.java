@@ -75,4 +75,9 @@ public class CartService {
         cartRepository.delete(cartRepository.findByUser_idAndGood_id(userRepositoryCustom.findById(user_id),goodRepositoryCustom.findById(good_id)));
     }
 
+    @Transactional
+    public void delete(Long userId){
+        cartRepository.delete(cartRepository.findByUser_id(userRepositoryCustom.findById(userId)));
+    }
+
 }

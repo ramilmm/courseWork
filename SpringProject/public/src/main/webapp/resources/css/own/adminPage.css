@@ -1,0 +1,73 @@
+.container {
+    width: 100vw;
+}
+.admin-info {
+    background-color: #433c3c;
+    height: 100vh;
+    margin-left: -15px;
+}
+.info-block {
+    background-color: whitesmoke;
+    height: 100vh;
+    margin-left: -29px;
+}
+.profile-img img{
+    max-height: 128px;
+    max-width: 128px;
+    margin: 9px 80px;
+}
+.profile-name > .admin-name {
+    color: #fff;
+    font-size: 22px;
+    padding: 20px 60px;
+}
+.sales {
+    margin-top: 10%;
+    border: 2px solid #eb5151;
+    border-radius: 5px;
+    padding: 20px 20px;
+}
+.sales label,
+.sales input,
+.sales select{
+    margin-left: 5px;
+    color: #554f4f;
+}
+.info-block > .content {
+    margin-left: 30px;
+    /*    color: #eb5151;*/
+}
+input[type="number"] {
+    max-width: 40px;
+}
+input[type="submit"] {
+    background-color: whitesmoke;
+    border: 1px solid #eb5151;
+    border-radius: 17px;
+    padding: 7px 10px;
+    color: #eb5151;
+}
+input[type="submit"]:hover {
+    background-color: #eb5151;
+    color: white;
+}
+.admin-menu {
+    font-size: 17px;
+    margin-left: 54px;
+    color: #fff;
+    list-style-type: none;
+}
+.content span {
+    color: #eb5151;
+}
+p.tittle {
+    font-size: 39px;
+    text-align: center;
+}
+.admin-menu a {
+    color: #fff;
+}
+.admin-menu a:hover {
+    color: #fff;
+    text-decoration: none;
+}

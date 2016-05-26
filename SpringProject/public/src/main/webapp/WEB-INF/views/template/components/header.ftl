@@ -8,12 +8,12 @@
                     <@sec.authorize ifAnyGranted="ROLE_ANONYMOUS">
                     <#--<#if user??>-->
                     <#--<#else>-->
-                        <li><a href="/reg">Sing in</a></li>
+                        <li><a href="/reg">Sing up</a></li>
                         <li><a href="/login">My account</a></li>
                     </@sec.authorize>
                     <@sec.authorize access="isAuthenticated()">
 
-                    <li><a href="/cabinet"> <@sec.authentication property="principal.username" /></a></li>
+                    <li><a href="/cabinet"> <@sec.authentication property="principal.name" /></a></li>
                         <li><a href="/logout">Logout</a></li>
                     </@sec.authorize>
                         <li><a href="/feedback">Feedback</a></li>
@@ -44,10 +44,7 @@
                         <span id="total" class="simpleCart_total"></span>
                         <a href="/cart" class="checkout_button">Checkout</a>
                         <a href="javascript:;" class="clearbasket_link">Clear cart</a></p>
-                    <script>
 
-
-                    </script>
                 </div>
             </div>
             <div class="col-md-1">

@@ -21,8 +21,16 @@
                         <a class="buy_btn" style="background: rgb(280, 124, 83)" href="/cart">Go in cart</a>
                         <span class="item_price" style="border: 3px solid #ff7c53">${good.cost}</span>
                     <#else>
-                        <a href="/cart/add" class="buy_btn js_addToCart item_add" data-id="${good.id}">Buy</a>
-                        <span class="item_price">$${good.cost}</span>
+                        <a href="/cart/add" class="buy_btn js_addToCart item_add"
+                           data-id="${good.id}">Buy</a>
+                        <#if (good.discount != 1)>
+                            <span class="js_addToCart item_add item_price-css"
+                                  style="border: 3px solid #ff7c53"><s><i>$${good.cost}</s> </i>
+                                <b class="item_price">$${(good.cost*good.discount)?int}</b></span>
+                        <#else>
+                            <span class="item_price item_price-css">$${good.cost}</span>
+                        </#if>
+
                     </#if>
                 </div>
             </#list>

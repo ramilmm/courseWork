@@ -259,25 +259,25 @@ nav styles
     margin-left: -18px;
 }
 /*!**/
-    /*checkbox customize*/
+/*checkbox customize*/
 /**!*/
 /*input[type="checkbox"] {*/
-    /*display: none;*/
+/*display: none;*/
 /*}*/
 /*input[type="checkbox"] + label {*/
-    /*cursor: pointer;*/
-    /*padding-left: 0;*/
+/*cursor: pointer;*/
+/*padding-left: 0;*/
 /*}*/
 /*input[type="checkbox"] + label::before {*/
-    /*content: "";*/
-    /*display: inline-block;*/
-    /*height: 22px;*/
-    /*width: 24px;*/
-    /*margin: 0 5px 0 0;*/
-    /*background: url("../../images/checkboxes.png");*/
+/*content: "";*/
+/*display: inline-block;*/
+/*height: 22px;*/
+/*width: 24px;*/
+/*margin: 0 5px 0 0;*/
+/*background: url("../../images/checkboxes.png");*/
 /*}*/
 /*input[type="checkbox"]:checked + label::before {*/
-    /*background-position: 0 -22px;*/
+/*background-position: 0 -22px;*/
 /*}*/
 
 span#total {

@@ -17,13 +17,19 @@ public interface GoodRepositoryCustom extends JpaRepository<GoodInfo,Long> {
 
     GoodInfo findByNameIgnoreCase(String name);
 
+    List<GoodInfo> findByCategory_IdOrderByRatingDesc(Long id);
+
     List<GoodInfo> findByCategory_Id(Long id);
 
     List<GoodInfo> findByCountryIgnoreCase(String country);
 
     List<GoodInfo> findByAuthorIgnoreCase(String author);
 
+    List<GoodInfo> findByAuthorOrderByRatingDesc(String author);
+
     List<GoodInfo> findByCentury(Long century);
+
+    List<GoodInfo> findByCenturyOrderByRatingDesc(Long century);
 
     List<GoodInfo> findByCostBetween(BigDecimal min_cost,BigDecimal max_cost);
 

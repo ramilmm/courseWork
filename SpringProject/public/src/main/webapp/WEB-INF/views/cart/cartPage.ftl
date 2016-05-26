@@ -16,10 +16,10 @@
         </div>
     </div>
 </div>
-    <@sec.authorize ifAnyGranted="ROLE_ANONYMOUS">
+    <#--<@sec.authorize ifAnyGranted="ROLE_ANONYMOUS">-->
         <#include "components/orders.ftl" />
-    </@sec.authorize>
-    <@sec.authorize access="isAuthenticated()">
-        <#include "components/auth_orders.ftl" />
-    </@sec.authorize>
+    <#--</@sec.authorize>-->
+    <#--<@sec.authorize access="isAuthenticated()">-->
+        <#--<#include "components/auth_orders.ftl" />-->
+    <#--</@sec.authorize>-->
 </#macro>

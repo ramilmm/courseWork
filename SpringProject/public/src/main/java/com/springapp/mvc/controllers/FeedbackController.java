@@ -1,7 +1,10 @@
 package com.springapp.mvc.controllers;
 
 import com.springapp.mvc.aspects.annotation.IncludeMenuInfo;
+import com.springapp.mvc.aspects.annotation.Log;
 import com.springapp.mvc.form.FeedbackFormBean;
+import mvc.common.Feedback;
+import mvc.services.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -21,6 +24,8 @@ public class FeedbackController {
 
     @Autowired
     private HttpServletRequest request;
+    @Autowired
+    private FeedbackService feedback;
 
     /**
      * Отображение страницы с формой "Обратная связь"
@@ -35,6 +40,7 @@ public class FeedbackController {
     /**
      * Обработка формы обратной связи
      */
+    @Log
     @IncludeMenuInfo
     @RequestMapping(method = RequestMethod.POST)
     public String feedbackForm(
@@ -43,8 +49,14 @@ public class FeedbackController {
         if (bindingResult.hasErrors()) {
             return "feedback/feedbackPage";
         }
+        Feedback fb = new Feedback();
+        fb.setFirstname(feedbackFormBean.getFirstName());
+        fb.setSecondname(feedbackFormBean.getSecondName());
+        fb.setEmail(feedbackFormBean.getEmail());
+        fb.setSubject(feedbackFormBean.getSubject());
 
-        System.out.println(feedbackFormBean);
-        return "feedback/result";
+        feedback.add(fb);
+//        System.out.println(feedbackFormBean);
+        return "redirect:/";
     }
 }

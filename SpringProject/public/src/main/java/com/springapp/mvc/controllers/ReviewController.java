@@ -1,6 +1,7 @@
 package com.springapp.mvc.controllers;
 
 import com.springapp.mvc.aspects.annotation.IncludeMenuInfo;
+import com.springapp.mvc.aspects.annotation.Log;
 import com.springapp.mvc.form.ReviewFormBean;
 import mvc.services.GoodService;
 import mvc.services.ReviewService;
@@ -45,6 +46,7 @@ public class ReviewController {
     /**
      * Обработка формы REVIEW
      */
+    @Log
     @IncludeMenuInfo
     @RequestMapping(method = RequestMethod.POST)
     public String reviewForm(
@@ -55,11 +57,16 @@ public class ReviewController {
         if (bindingResult.hasErrors()) {
             return "redirect:/write-review?id="+goodId;
         }
+        String s = reviewFormBean.getReview();
+        if (s.contains("<") && s.contains(">")){
+            s = s.replace("<", "&lt");
+            s = s.replace(">", "&gt");
+        }
         reviewService.add(goodId,userService.getByLogin(request.getUserPrincipal().getName()).getId(),
-                reviewFormBean.getReview(),reviewFormBean.getFirstName(),reviewFormBean.getEmail());
+                s,reviewFormBean.getFirstName(),reviewFormBean.getEmail());
 
 
-        System.out.println(reviewFormBean);
+//        System.out.println(reviewFormBean);
         return "redirect:/good/"+goodId;
     }
 

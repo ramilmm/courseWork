@@ -1,0 +1,25 @@
+.order-table-css {
+    background-color: #C7D4E0;
+    width: 100%;
+}
+th {
+    border-bottom: 1px solid #eb5151;
+}
+td, th {
+    padding-right: 45px;
+    padding-left: 10px;
+    line-height: 35px;
+}
+.table-title-css {
+    text-align: center;
+}
+.orders {
+    border: 3px solid #eb5151;
+    border-radius: 5px;
+    width: 95%;
+}
+.no-orders {
+    color: #eb5151;
+    font-size: 20px;
+    text-align: center;;
+}

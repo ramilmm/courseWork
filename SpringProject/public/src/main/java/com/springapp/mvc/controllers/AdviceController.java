@@ -11,4 +11,5 @@ public class AdviceController {
     public String renderErrorPage(){
         return "errorPages/error-404";
     }
+
 }

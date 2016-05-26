@@ -1,8 +1,28 @@
+var force = true;
 $(document).ready(function () {
 
-    var force = true;
-    
-    $(".showMore").click(function () {
+    $(document).on('click', '.delete_order', function () {
+        event.preventDefault();
+        var $this = $(this);
+        $.ajax({
+            type: 'POST',
+            url: '/cabinet/delete',
+            data: {
+                orderId: $this.data('id')
+            },
+            success: function (data, status) {  // успешное завершение работы
+                console.log('status=' + status);
+                var dynamicClass = '.order'+$this.data('id');
+                $(dynamicClass).hide();
+            },
+            error: function () {    // На сервере произошла ошибка
+                // console.log(data);
+                alert('Приносим извинения.<br/>На сервере произошла ошибка');
+            }
+        });
+    });
+
+    $(document).on('click', '.showMore', function () {
         var $this = $(this);
         $.ajax({
             type: "POST",
@@ -10,7 +30,7 @@ $(document).ready(function () {
             data: {
                 id: $('.book_view').children("a").attr('id')
             }
-        }).done(function (data) {  // сюда приходит ответ при успехе
+        }).success(function (data) {  // сюда приходит ответ при успехе
             //console.log(data);
             if (data != '' && force) {
                 $(".comment").last().after(data);
@@ -19,7 +39,7 @@ $(document).ready(function () {
             } else {
                 $this.hide();
             }
-        }).fail(function () {
+        }).error(function () {
             $this.hide();
         });
     });
@@ -35,7 +55,7 @@ $(document).ready(function () {
             success: function (data, status) {  // успешное завершение работы
                 console.log('/cart/add result: data=' + data + '; status=' + status);
                 if (data == 'ok') {
-                    $this.removeClass('js_addToCart item_add').text('Go in cart').css('background', 'rgb(280, 124, 83)').attr('href','/cart');
+                    $this.removeClass('js_addToCart item_add').text('Go in cart').css('background', 'rgb(280, 124, 83)').attr('href', '/cart');
                 }
             },
             error: function () {    // На сервере произошла ошибка
@@ -44,6 +64,28 @@ $(document).ready(function () {
             }
         });
     });
+
+
+    $(document).on('click', '.js_addToWishlist', function () {
+        event.preventDefault();
+        var $this = $(this);
+        $.ajax({
+            type: 'POST',
+            url: '/wishlist/add',
+            data: {goodId: $this.data('id')},
+            success: function (data, status) {  // успешное завершение работы
+                console.log('/wishlist/add result: data=' + data + '; status=' + status);
+                if (data == 'ok') {
+                    $this.removeClass('js_addToWishlist item_add').attr('href', '/wishlist');
+                }
+            },
+            error: function () {    // На сервере произошла ошибка
+                console.log(data);
+                alert('Приносим извинения.<br/>На сервере произошла ошибка');
+            }
+        });
+    });
+
 
     // $(document).on('click', '.js_deleteGood', function () {
     //     event.preventDefault();

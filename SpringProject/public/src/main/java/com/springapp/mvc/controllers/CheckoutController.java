@@ -6,6 +6,7 @@ import mvc.common.AddressInfo;
 import mvc.common.OrdersInfo;
 import mvc.common.UsersInfo;
 import mvc.services.AddressService;
+import mvc.services.CartService;
 import mvc.services.OrderService;
 import mvc.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,8 @@ public class CheckoutController {
     private UserService userService;
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private CartService cartService;
 
     private Long qty;
     private BigDecimal sum;
@@ -78,6 +81,7 @@ public class CheckoutController {
         AddressInfo address = new AddressInfo(city, street, house, flat, post_index, area, user);
         addressService.add(address);
         orderService.add(new OrdersInfo(user,address,new Date(), sum ,qty,"Обработка","Наложенный платёж"));
+        cartService.delete(user.getId());
         return "redirect:/";
     }
 

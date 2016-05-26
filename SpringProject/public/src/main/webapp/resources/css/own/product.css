@@ -44,7 +44,7 @@ body, header {
 }
 .cart_block p {
     color: #424242;
-    font-size: 25px; 
+    font-size: 25px;
     padding-top: 20px;
     line-height: 30px;
     border-right: 1px solid #3f3f3f;
@@ -55,7 +55,7 @@ body, header {
     padding: 5px 9px;
 }
 .wish_list {
-    padding-top: 23px; 
+    padding-top: 23px;
     font-size: 20px;
 }
 .wish_list p {
@@ -66,11 +66,11 @@ body, header {
     color: #fff;
     background-color: #f05356;
     border-radius: 8px;
-    padding: 0px 5px; 
+    padding: 0px 5px;
     margin: 0 1px;
 }
 .nav_line {
-   box-shadow: 0 0 2px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.22);
 }
 .nav_line li {
     font-family: "RobotoLight";
@@ -99,7 +99,7 @@ body, header {
 .pay_description {
     border: 1px solid #c7c7c7;
     max-width: 700px;
-    margin-top: 30px; 
+    margin-top: 30px;
 }
 .pay_description img {
     margin: 10px 0 11px 10px;
@@ -118,21 +118,21 @@ body, header {
     padding-left: 20px;
 }
 a.my_button {
-  margin-left: 200px; 
-  font-family: "RobotoBold";
-  font-size: 20px; 
-  color: white;
-  text-decoration: none;
-  padding: .8em 2em calc(.8em + 3px);
-  border-radius: 3px;
-  background: rgb(64,199,129);
-  box-shadow: 0 -3px rgb(53,167,110) inset;
-  transition: 0.2s;
-} 
+    margin-left: 200px;
+    font-family: "RobotoBold";
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    padding: .8em 2em calc(.8em + 3px);
+    border-radius: 3px;
+    background: rgb(64,199,129);
+    box-shadow: 0 -3px rgb(53,167,110) inset;
+    transition: 0.2s;
+}
 a.my_button:hover { background: rgb(53, 167, 110); }
 a.my_button:active {
-  background: rgb(33,147,90);
-  box-shadow: 0 3px rgb(33,147,90) inset;
+    background: rgb(33,147,90);
+    box-shadow: 0 3px rgb(33,147,90) inset;
 }
 .mid_part{
     margin: 21px 1px;
@@ -164,7 +164,7 @@ a.my_button:active {
     text-align: left;
     margin: -83px 0 20px 71px;
     line-height: 33px;
-} 
+}
 .popular_books img {
     max-height: 90px;
     max-width: 61px;
@@ -241,8 +241,8 @@ a.my_button:active {
     z-index: 101;
 }
 .stop {
-  position: relative;
-  z-index: 101;
+    position: relative;
+    z-index: 101;
 }
 
 /*
@@ -279,17 +279,17 @@ nav styles
     padding: 2px 13px;
     color:#424242;
     text-decoration:none;
-     
+
     -moz-border-radius:2px;
     -webkit-border-radius:2px;
     border-radius:2px;
 }
 #top-nav li a:hover{
     color:#fff;
-/*
-    background:#6b0c36;
-    background:rgba(107,12,54,0.75);  Выглядит полупрозрачным 
-    text-decoration:underline;*/
+    /*
+        background:#6b0c36;
+        background:rgba(107,12,54,0.75);  Выглядит полупрозрачным
+        text-decoration:underline;*/
 }
 
 
@@ -302,7 +302,7 @@ nav styles
 #top-nav ul{
     list-style:none;
     position:absolute;
-/*    left:-9999px;  Скрываем за экраном, когда не нужно (данный метод лучше, чем display:none;) */
+    /*    left:-9999px;  Скрываем за экраном, когда не нужно (данный метод лучше, чем display:none;) */
     display: none;
     opacity:0; /* Устанавливаем начальное состояние прозрачности */
     -webkit-transition:0.25s linear opacity; /* В Webkit выпадающие пункты будут проявляться */
@@ -311,7 +311,7 @@ nav styles
     width: 229px
 }
 #top-nav ul li{
-/*    padding-top:1px;  Вводим отступ между li чтобы создать иллюзию разделенных пунктов меню */
+    /*    padding-top:1px;  Вводим отступ между li чтобы создать иллюзию разделенных пунктов меню */
     float:none;
     background-color: #fff;
     opacity: 0.9;
@@ -323,12 +323,12 @@ nav styles
     color: #fff;
 }
 #top-nav li:hover ul{ /* Выводим выпадающий пункт при наведении курсора */
-/*    left:0;  Приносим его обратно на экран, когда нужно */
+    /*    left:0;  Приносим его обратно на экран, когда нужно */
     display: block;
-    opacity:1;  /*Делаем непрозрачным*/ 
+    opacity:1;  /*Делаем непрозрачным*/
 }
 #top-nav li:hover a{ /* Устанавливаем стили для верхнего уровня, когда выводится выпадающий список */
-    background-color: #fff; 
+    background-color: #fff;
     text-decoration:none;
     color: #000000;
 }

@@ -1,6 +1,7 @@
 package com.springapp.mvc.controllers;
 
 import com.springapp.mvc.aspects.annotation.IncludeMenuInfo;
+import mvc.common.GoodInfo;
 import mvc.common.ReviewInfo;
 import mvc.services.GoodService;
 import mvc.services.MenuService;
@@ -26,8 +27,6 @@ public class GoodController {
     private GoodService goodService;
     @Autowired
     private ReviewService reviewService;
-    @Autowired
-    private MenuService menuService;
 
     private int from = 3;
 
@@ -39,7 +38,9 @@ public class GoodController {
     @IncludeMenuInfo
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String renderGoodPage(@PathVariable("id") Long goodId) {
-        request.setAttribute("good", goodService.getById(goodId));
+        GoodInfo good = goodService.getById(goodId);
+        request.setAttribute("good", good);
+        request.setAttribute("populars",goodService.getTop5ByCategory(goodId));
         List<ReviewInfo> comments = reviewService.getByGoodId(goodId);
         request.setAttribute("AllComments",comments);
         if(comments.size()>3){

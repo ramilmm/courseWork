@@ -4,11 +4,11 @@
 <#-- @ftlvariable name="good" type="mvc.common.GoodInfo" -->
 <#assign sec=JspTaglibs["http://www.springframework.org/security/tags"]>
 <#include "../template/template.ftl">
-<@mainTemplate title="BookStore" styles=["css/own/product.css"] scripts=["js/own/ajax.js"]/>
+<@mainTemplate title="BookStore" styles=["css/own/product.css"] scripts=["js/own/ajax.j"]/>
 <#macro m_body>
 <#include "components/nav_way.ftl" />
-<div class="container">
-    <div class="product_info">
+<div id="test" class="container">
+    <div class="product_info simpleCart_shelfItem">
         <div class="row">
             <#if good??>
             <div class="col-md-4">
@@ -18,17 +18,22 @@
             </div>
             <div class="col-md-8">
                 <div class="book_head">
-                    <h1>${good.name}</h1>
-                    <a href="/wishlist/add" class="addToWishlist"><img src="/resources/images/icons/wish_icon.png" alt="addToWishList"></a>
+                    <h1 class="item_name">${good.name}</h1>
                 </div>
 
                 <div class="description">
                     <span>${good.description}</span>
                 </div>
                 <div class="pay_description">
-                    <p>Our price : <span>$${good.cost}.00</span>
+                    <p>Our price :
+                        <#if (good.discount != 1)>
+                            <span>$<s><i>${good.cost}</i></s><span class="item_price">$${(good.cost*good.discount)?int}</span></span>
+                        <#else>
+                            <span>$<span class="item_price">${good.cost}</span></span>
+                        </#if>
+
                         <#if (Session.cart.goods)?? && Session.cart.containsGoodId(good.id)>
-                            <a class="buy_btn item_add my_button" href="/cart">Go in cart</a>
+                            <a class="buy_btn my_button" href="/cart">Go in cart</a>
                         <#else>
                             <a href="/cart" class="buy_btn js_addToCart item_add my_button" data-id="${good.id}">Add to cart</a>
                         </#if>
@@ -57,7 +62,6 @@
                         </div>
                     </div>
                 </div>
-                <#--<#include "components/comments.ftl" />-->
                 <div class="comments">
                     <#if comments?has_content>
                         <h3>Book review</h3>
@@ -89,7 +93,7 @@
                 </div>
                 </div>
             </div>
-            <#--<#include "components/popular.ftl" />-->
+            <#include "components/popular.ftl" />
                 <#else>
                 <span>Sorry, book not found.</span>
             </#if>

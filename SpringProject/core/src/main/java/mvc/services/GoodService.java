@@ -13,11 +13,13 @@ import java.util.List;
 public class GoodService {
 
 
-//    @Autowired
-//    private GoodRepository goodRepository;
 
     @Autowired
     private GoodRepositoryCustom goodRepositoryCustom;
+
+    public List<GoodInfo> getAll(){
+        return goodRepositoryCustom.findAll();
+    }
 
 
     @Transactional
@@ -35,42 +37,67 @@ public class GoodService {
         goodRepositoryCustom.saveAndFlush(goodInfo);
     }
 
-    @Transactional
     public GoodInfo getById(Long goodId) {
         return goodRepositoryCustom.findById(goodId);
     }
 
-    @Transactional
     public GoodInfo getByName(String name){
         return goodRepositoryCustom.findByNameIgnoreCase(name);
     }
 
-    @Transactional
     public List<GoodInfo> getByCategory(Long id){
         return goodRepositoryCustom.findByCategory_Id(id);
     }
 
-    @Transactional
     public List<GoodInfo> getByCountry(String country){
         return goodRepositoryCustom.findByCountryIgnoreCase(country);
     }
 
-    @Transactional
     public List<GoodInfo> getByAuthor(String author){
         return goodRepositoryCustom.findByAuthorIgnoreCase(author);
     }
 
-    @Transactional
     public List<GoodInfo> getByCentury(Long century){
         return goodRepositoryCustom.findByCentury(century);
     }
 
-    @Transactional
     public List<GoodInfo> getByCost(BigDecimal min, BigDecimal max){
         return goodRepositoryCustom.findByCostBetween(min,max);
     }
 
+    public List<GoodInfo> getTop5ByCategory(Long goodId){
+        GoodInfo thisGood = goodRepositoryCustom.findById(goodId);
+        List<GoodInfo> list = goodRepositoryCustom.findByCategory_IdOrderByRatingDesc(thisGood.getCategory().getId());
+        if (list.size() == 1){
+            list = goodRepositoryCustom.findByAuthorIgnoreCase(thisGood.getAuthor());
+        }
+        if (list.size() == 1){
+            list = goodRepositoryCustom.findByCentury(thisGood.getCentury());
+        }
+        GoodInfo goodToRemove = null;
+        for (GoodInfo good : list){
+            if (good.getId().equals(goodId)){
+                goodToRemove = good;
+            }
+        }
+        if(goodToRemove!=null) {
+            list.remove(goodToRemove);
+        }
+        if (list.size() > 5) {
+            list.subList(0,5);
+        }
+        return list;
+    }
+
+
     @Transactional
+    public void popularUp(Long goodId){
+        GoodInfo good = goodRepositoryCustom.findById(goodId);
+        Long buf = good.getRating();
+        good.setRating(++buf);
+        goodRepositoryCustom.save(good);
+    }
+
     public List<GoodInfo> getByStatus(String status){
         return goodRepositoryCustom.findByStatusIgnoreCase(status);
     }
@@ -78,7 +105,6 @@ public class GoodService {
     /**
      * Получение товара по автору и веку издательства
      */
-    @Transactional
     public List<GoodInfo> getByAuthorAndCentury(String author,Long century){
         return goodRepositoryCustom.findByAuthorIgnoreCaseAndCentury(author,century);
     }
@@ -86,7 +112,6 @@ public class GoodService {
     /**
      * Получение товара по автору,цене и веку издательства
      */
-    @Transactional
     public List<GoodInfo> getByAuthorAndCostAndCentury(String author,BigDecimal min,BigDecimal max,Long century){
         return goodRepositoryCustom.findByAuthorIgnoreCaseAndCostBetweenAndCentury(author,min,max,century);
     }
@@ -94,7 +119,6 @@ public class GoodService {
     /**
      * Получение товара по автору, цене,веку и стране
      */
-    @Transactional
     public List<GoodInfo> getByAuthorAncCostAndCenturyAndCountry(String author,BigDecimal min,BigDecimal max,Long century,String country){
         return goodRepositoryCustom.findByAuthorIgnoreCaseAndCostBetweenAndCenturyAndCountryIgnoreCase(author,min,max,century,country);
     }

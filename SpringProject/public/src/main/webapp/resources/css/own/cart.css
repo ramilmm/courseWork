@@ -43,7 +43,7 @@ body {
 }
 .cart_block p {
     color: #424242;
-    font-size: 25px; 
+    font-size: 25px;
     padding-top: 20px;
     line-height: 30px;
     border-right: 1px solid #3f3f3f;
@@ -69,7 +69,7 @@ body {
     color: #fff;
 }
 .wish_list {
-    padding-top: 23px; 
+    padding-top: 23px;
     font-size: 20px;
 }
 .wish_list p {
@@ -80,7 +80,7 @@ body {
     color: #fff;
     background-color: #f05356;
     border-radius: 8px;
-    padding: 0px 5px; 
+    padding: 0px 5px;
     margin: 0 1px;
 }
 .head {
@@ -135,7 +135,7 @@ body {
     font-family: "RobotoLight";
 }
 .top {
-    background-color: #EBEBEB; 
+    background-color: #EBEBEB;
 }
 td,th {
     padding: 17px;
@@ -223,8 +223,8 @@ td input {
     z-index: 101;
 }
 .stop {
-  position: relative;
-  z-index: 101;
+    position: relative;
+    z-index: 101;
 }
 
 /*
@@ -261,17 +261,17 @@ nav styles
     padding: 2px 13px;
     color:#424242;
     text-decoration:none;
-     
+
     -moz-border-radius:2px;
     -webkit-border-radius:2px;
     border-radius:2px;
 }
 #top-nav li a:hover{
     color:#fff;
-/*
-    background:#6b0c36;
-    background:rgba(107,12,54,0.75);  Выглядит полупрозрачным 
-    text-decoration:underline;*/
+    /*
+        background:#6b0c36;
+        background:rgba(107,12,54,0.75);  Выглядит полупрозрачным
+        text-decoration:underline;*/
 }
 
 
@@ -284,7 +284,7 @@ nav styles
 #top-nav ul{
     list-style:none;
     position:absolute;
-/*    left:-9999px;  Скрываем за экраном, когда не нужно (данный метод лучше, чем display:none;) */
+    /*    left:-9999px;  Скрываем за экраном, когда не нужно (данный метод лучше, чем display:none;) */
     display: none;
     opacity:0; /* Устанавливаем начальное состояние прозрачности */
     -webkit-transition:0.25s linear opacity; /* В Webkit выпадающие пункты будут проявляться */
@@ -293,7 +293,7 @@ nav styles
     width: 229px
 }
 #top-nav ul li{
-/*    padding-top:1px;  Вводим отступ между li чтобы создать иллюзию разделенных пунктов меню */
+    /*    padding-top:1px;  Вводим отступ между li чтобы создать иллюзию разделенных пунктов меню */
     float:none;
     background-color: #fff;
     opacity: 0.9;
@@ -305,12 +305,12 @@ nav styles
     color: #fff;
 }
 #top-nav li:hover ul{ /* Выводим выпадающий пункт при наведении курсора */
-/*    left:0;  Приносим его обратно на экран, когда нужно */
+    /*    left:0;  Приносим его обратно на экран, когда нужно */
     display: block;
-    opacity:1;  /*Делаем непрозрачным*/ 
+    opacity:1;  /*Делаем непрозрачным*/
 }
 #top-nav li:hover a{ /* Устанавливаем стили для верхнего уровня, когда выводится выпадающий список */
-    background-color: #fff; 
+    background-color: #fff;
     text-decoration:none;
     color: #000000;
 }

@@ -1,6 +1,7 @@
 package mvc.services;
 
 import mvc.common.OrdersInfo;
+import mvc.common.UsersInfo;
 import mvc.repositories.OrdersRepositoryCustom;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,16 @@ public class OrderService {
         ordersRepositoryCustom.saveAndFlush(ordersInfo);
     }
 
-    public List<OrdersInfo> getById(Long id){
+    @Transactional
+    public void delete(OrdersInfo ordersInfo){
+        ordersRepositoryCustom.delete(ordersInfo);
+    }
+
+    public List<OrdersInfo> getByUser(UsersInfo user){
+        return ordersRepositoryCustom.findByUser(user);
+    }
+
+    public OrdersInfo getById(Long id){
         return ordersRepositoryCustom.findById(id);
     }
 }

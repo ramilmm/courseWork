@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="error_code">404</h1>
+            <h1 class="error_code">403: Access denied</h1>
             <img src="/resources/images/error.jpg" class="error_img">
             <h1 style="text-align: center">Forbidden <br/>
                 Return to <a href="/" class="homepage_css">homepage.</a> </h1>

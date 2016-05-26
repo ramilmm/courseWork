@@ -1,5 +1,5 @@
 <#include "../template/template.ftl">
-<@mainTemplate title="Wishlist" styles=["css/own/wishlist.css"] scripts=["js/own/order.js","js/own/ajax.js"]/>
+<@mainTemplate title="Wishlist" styles=["css/own/wishlist.css"] scripts=["js/own/order.js","js/own/wishlist_ajax.js"]/>
 <#macro m_body>
 <div class="main">
     <div class="wishlist">

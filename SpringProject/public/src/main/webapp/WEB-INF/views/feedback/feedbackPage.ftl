@@ -13,8 +13,8 @@
                         <@form.errors path="firstName" cssStyle= "color:red"/>
                         </div>
                         <div class="form-group">
-                        <@form.input path="firstName" class="form-control" placeholder="Second name"/>
-                        <@form.errors path="firstName" cssStyle= "color:red"/>
+                        <@form.input path="secondName" class="form-control" placeholder="Second name"/>
+                        <@form.errors path="secondName" cssStyle= "color:red"/>
                     </div>
                     <div class="form-group">
                         <@form.input path="email"class="form-control"  placeholder="Email"/>

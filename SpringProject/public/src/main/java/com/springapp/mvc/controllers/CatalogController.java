@@ -33,6 +33,11 @@ public class CatalogController {
     public String renderCatalog(@PathVariable("id") Long id,
                                 Model model) {
         List<GoodInfo> goods = catalogService.getGoodsByCategoryId(id);
+        for (GoodInfo g : goods){
+            if (g.getCount() == 0){
+                goods.remove(g);
+            }
+        }
         model.addAttribute("goods", goods);
 
         CategoryInfo categoryInfo = catalogService.getById(id);
