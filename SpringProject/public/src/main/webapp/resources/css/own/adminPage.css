@@ -71,3 +71,12 @@ p.tittle {
     color: #fff;
     text-decoration: none;
 }
+table {
+    background-color: #C7D4E0;
+}
+td {
+    padding-left: 14px;
+}
+td.update_user, td.delete_user, td.deactivate {
+    cursor: pointer;
+}

@@ -2,6 +2,7 @@ package com.springapp.mvc.controllers;
 
 import com.springapp.mvc.aspects.annotation.IncludeMenuInfo;
 import com.springapp.mvc.aspects.annotation.Log;
+import mvc.common.CategoryInfo;
 import mvc.common.GoodInfo;
 import mvc.common.UsersInfo;
 import mvc.services.CatalogService;
@@ -35,30 +36,23 @@ public class MainController {
     @IncludeMenuInfo
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String renderMain(ModelMap model) {
+        List<CategoryInfo> categories = catalogService.getAllChildrens();
+        List<String> auth = goodService.getDistinctElements("Authors");
+        request.setAttribute("authors",auth);
+        List<String> country = goodService.getDistinctElements("s");
+        request.setAttribute("country",country);
+        request.setAttribute("categories",categories);
+
         List<GoodInfo> bestseller = catalogService.getByStatus("Bestseller");
         List<GoodInfo> newArrival = catalogService.getByStatus("New arrival");
         List<GoodInfo> usedBook = catalogService.getByStatus("Used book");
         List<GoodInfo> exclusive = catalogService.getByStatus("Exclusive");
-        for (GoodInfo g : bestseller){
-            if (g.getCount() == 0){
-                bestseller.remove(g);
-            }
-        }
-        for (GoodInfo g : newArrival){
-            if (g.getCount() == 0){
-                newArrival.remove(g);
-            }
-        }
-        for (GoodInfo g : usedBook){
-            if (g.getCount() == 0){
-                usedBook.remove(g);
-            }
-        }
-        for (GoodInfo g : exclusive){
-            if (g.getCount() == 0){
-                exclusive.remove(g);
-            }
-        }
+
+        goodService.checkCount(bestseller);
+        goodService.checkCount(newArrival);
+        goodService.checkCount(usedBook);
+        goodService.checkCount(exclusive);
+        
         GoodInfo deal = goodService.getById(1L);
         if (request.getRemoteUser() != null){
             UsersInfo user = userService.getByLogin(request.getUserPrincipal().getName());
@@ -72,4 +66,6 @@ public class MainController {
         model.addAttribute("deal", deal);
         return "main/main";
     }
+
+
 }

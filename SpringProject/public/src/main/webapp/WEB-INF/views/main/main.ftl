@@ -9,7 +9,7 @@
 
 <#assign sec=JspTaglibs["http://www.springframework.org/security/tags"]>
 <#include "../template/template.ftl">
-<@mainTemplate title="BookStore" styles=["css/own/home_page.css", "css/ion.rangeSlider.css", "css/ion.rangeSlider.skinHTML5.css"]/>
+<@mainTemplate title="BookStore" styles=["css/own/home_page.css", "css/ion.rangeSlider.css", "css/ion.rangeSlider.skinHTML5.css"] scripts=["js/own/ajax.js"]/>
 <#macro m_body>
     <#include "../template/components/headerCategoryList.ftl" />
 <div class="slider">
@@ -46,7 +46,7 @@
                                                                                            class="book_name">${rec.name}</a></p><br>
                                             <a href="/good/${rec.id}"><span class="author">${rec.author}</span></a><br>
                                             <a href="/good/${rec.id}"><span
-                                                    class="cost item_price">$${(rec.cost*rec.discount)%1}</span></a>
+                                                    class="cost item_price">$${(rec.cost*rec.discount)?int}</span></a>
                                             </p>
                                             <a href="/cart/add" class="rec-buy-btn js_addToCart item_add">Buy</a>
                                     </span>

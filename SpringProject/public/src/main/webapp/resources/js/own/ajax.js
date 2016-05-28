@@ -1,6 +1,100 @@
 var force = true;
 $(document).ready(function () {
 
+    $(document).on('click', '.filter-item', function () {
+        console.log('SET VALUE');
+        // event.preventDefault();
+        var authors = $('.author input:checked');
+        var authorsArray = '';
+        var count = authors.size()-1;
+        while (count >=0){
+            authorsArray += authors[count].value+';';
+            count -= 1;
+        }
+        $('#authors').val(authorsArray);
+        var country = $('.country input:checked');
+        var countryArray = '';
+        var c = country.size()-1;
+        while (c >=0){
+            countryArray += country[c].value+';';
+            c -= 1;
+        }
+        $('#country').val(countryArray);
+        var cost = $('#cost')[0].value;
+        var costArray =  cost.split(';');
+        var min =  costArray[0];
+        var max = costArray[1];
+    });
+
+    $(document).on('click', '.deactivate', function () {
+        event.preventDefault();
+        var $this = $(this);
+        var user = $this.data('id');
+        var id = '#active' + user;
+        $.ajax({
+            type: 'POST',
+            url: '/admin/deactivate',
+            data: {
+                userId: user
+            },
+            success: function (data, status) {  // успешное завершение работы
+                console.log('status=' + status);
+                console.log(id);
+                var el = document.getElementById('active'+user);
+                el.innerHTML = 'no';
+                // $(id).innerHTML = 'no';
+            },
+            error: function () {    // На сервере произошла ошибка
+                // console.log(data);
+                alert('Приносим извинения.<br/>На сервере произошла ошибка');
+            }
+        });
+    });
+
+
+    $(document).on('click', '.update_user', function () {
+        event.preventDefault();
+        var $this = $(this);
+        var user = $this.data('id');
+        var roleId = '#role'+user; 
+        $.ajax({
+            type: 'POST',
+            url: '/admin/updateUser',
+            data: {
+                userId: user,
+                role: $(roleId).find('option:selected').val()
+            },
+            success: function (data, status) {  // успешное завершение работы
+                console.log('status=' + status);
+            },
+            error: function () {    // На сервере произошла ошибка
+                // console.log(data);
+                alert('Приносим извинения.<br/>На сервере произошла ошибка');
+            }
+        });
+    });
+
+    $(document).on('click', '.delete_user', function () {
+        event.preventDefault();
+        var $this = $(this);
+        $.ajax({
+            type: 'POST',
+            url: '/admin/deleteUser',
+            data: {
+                userId: $this.data('id')
+            },
+            success: function (data, status) {  // успешное завершение работы
+                console.log('status=' + status);
+                var dynamicClass = '.user'+$this.data('id');
+                $(dynamicClass).hide();
+            },
+            error: function () {    // На сервере произошла ошибка
+                // console.log(data);
+                alert('Приносим извинения.<br/>На сервере произошла ошибка');
+            }
+        });
+    });
+
     $(document).on('click', '.delete_order', function () {
         event.preventDefault();
         var $this = $(this);

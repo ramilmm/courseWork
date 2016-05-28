@@ -55,6 +55,8 @@ public class UserService {
         return userRepositoryCustom.findByLogin(login);
     }
 
+    public List<UsersInfo> getAll(){ return userRepositoryCustom.findAll(); }
+
     /*
     * lor - List of Recommendations
     * */

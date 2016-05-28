@@ -54,6 +54,13 @@ public class CheckoutController {
                                  String total_sum){
         qty = Long.parseLong(total_quantity);
         sum = new BigDecimal(Integer.parseInt(total_sum));
+        UsersInfo user = userService.getByLogin(request.getUserPrincipal().getName());
+        AddressInfo address = addressService.getByUserId(user.getId());
+        if (address != null ){
+            orderService.add(new OrdersInfo(user,address,new Date(), sum ,qty,"Обработка","Наложенный платёж"));
+            cartService.delete(user.getId());
+            return "redirect:/";
+        }
         return "redirect:/cart/checkout";
     }
     /**
@@ -63,22 +70,16 @@ public class CheckoutController {
     @RequestMapping(value = "/cart/checkout",method = RequestMethod.POST)
     public String CheckoutForm(
             @Valid @ModelAttribute(ATTR_CHECKOUT_FORM) CheckoutFormBean checkoutFormBean,
-            BindingResult bindingResult,
-            String area,
-            String city,
-            String flat,
-            String house,
-            String post_index,
-            String street) {
+            BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "cart/checkout";
         }
 
         UsersInfo user = userService.getByLogin(request.getUserPrincipal().getName());
-//        if (addressService.getByUserId(user.getId()) != null ){
-//            return "redirect:/cart/create-order";
-//        }
-        AddressInfo address = new AddressInfo(city, street, house, flat, post_index, area, user);
+
+        AddressInfo address = new AddressInfo(checkoutFormBean.getCity(), checkoutFormBean.getStreet(),
+                checkoutFormBean.getHouse(), checkoutFormBean.getFlat(), checkoutFormBean.getPost_index(),
+                checkoutFormBean.getArea(), user);
         addressService.add(address);
         orderService.add(new OrdersInfo(user,address,new Date(), sum ,qty,"Обработка","Наложенный платёж"));
         cartService.delete(user.getId());
@@ -88,7 +89,6 @@ public class CheckoutController {
 
     @RequestMapping(value = "/order", method = RequestMethod.POST)
     public String OrderForm(){
-
         return "redirect:/";
     }
 }

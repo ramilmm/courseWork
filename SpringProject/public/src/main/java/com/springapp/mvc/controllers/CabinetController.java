@@ -2,6 +2,7 @@ package com.springapp.mvc.controllers;
 
 import mvc.common.OrdersInfo;
 import mvc.common.UsersInfo;
+import mvc.services.AddressService;
 import mvc.services.OrderService;
 import mvc.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,18 +22,27 @@ public class CabinetController {
     private OrderService orderService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private AddressService addressService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String renderCabinetPage() {
         UsersInfo user = userService.getByLogin(request.getUserPrincipal().getName());
-        request.setAttribute("orders",orderService.getByUser(user));
+        request.setAttribute("address",addressService.getByUserId(user.getId()));
         return "cabinet/cabinetPage";
     }
 
-    @RequestMapping(value = "/delete" , method = RequestMethod.POST)
-    public String deleteOrder(Long orderId){
+    @RequestMapping(value = "/delete", method = RequestMethod.POST)
+    public String deleteOrder(Long orderId) {
         OrdersInfo order = orderService.getById(orderId);
         orderService.delete(order);
         return "cabinet/ajaxOrder";
+    }
+
+    @RequestMapping(value = "/orders", method = RequestMethod.GET)
+    public String renderOrders() {
+        UsersInfo user = userService.getByLogin(request.getUserPrincipal().getName());
+        request.setAttribute("orders", orderService.getByUser(user));
+        return "cabinet/orders";
     }
 }

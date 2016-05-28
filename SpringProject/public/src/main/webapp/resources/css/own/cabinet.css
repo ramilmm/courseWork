@@ -23,3 +23,19 @@ td, th {
     font-size: 20px;
     text-align: center;;
 }
+.delete_order {
+    cursor: pointer;
+    padding-left: 25px;
+}
+p.user_info, p.address {
+    margin: 12px 31px;
+    color: cadetblue;
+    font-size: 20px;
+}
+.admin-name a {
+    color: #fff;
+}
+.admin-name a:hover {
+    text-decoration: none;
+    color: #fff;
+}

@@ -1,4 +1,5 @@
 <#-- @ftlvariable name="orders" type="java.util.List<mvc.common.OrdersInfo>" -->
+<#-- @ftlvariable name="address" type="mvc.common.AddressInfo" -->
 <#-- @ftlvariable name="errorMsg" type="java.lang.String" -->
 <#assign sec=JspTaglibs["http://www.springframework.org/security/tags"]>
 <!DOCTYPE html>
@@ -20,49 +21,30 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="admin-info">
-                <div class="profile-img">
-                    <img src="/resources/images/admin.png" class="img-circle">
-                </div>
-                <div class="profile-name">
-                    <p class="admin-name"><@sec.authentication property="principal.name" /></p>
-                    <ul class="admin-menu">
-                        <li><a href="#">Edit profile</a></li>
-                        <li><a href="/">Go to home page</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <#include "left-menu.ftl">
         <div class="col-md-9">
             <div class="info-block">
                 <div class="content">
                     <p class="tittle">Book<span>Store</span> cabinet page</p>
-                <#if errorMsg??>
-                    <p style="color: red;font-size: 20px;text-align: center;">${errorMsg}</p>
-                </#if>
-                    <p class="table-title-css">Your orders</p>
-                    <div class="orders">
-                        <table class="order-table-css">
-                            <tr>
-                                <th>Date</th>
-                                <th>Status</th>
-                                <th>Pay type</th>
-                                <th>Total count</th>
-                                <th>Total sum</th>
-                                <th>Delete</th>
-                            </tr>
-                        <#include "order.ftl">
-                        <#list orders as ord>
-                            <#if ord??>
-                                <@order order=ord/>
-                            <#else >
-                                <p class="no-orders">Your don`t have orders</p>
-                            </#if>
+                                <span>
+                                    <p class="user_info">Name : <@sec.authentication property="principal.name" /></p>
+                                    <p class="user_info">Email : <@sec.authentication property="principal.username" /></p>
+                                    <p class="user_info">Role : <@sec.authentication property="principal.role" /></p>
+                                </span>
 
-                        </#list>
-                        </table>
-                    </div>
+                <#if address??>
+                <h3>Address information</h3>
+                    <span class="address_info">
+                                    <p class="address">Area : ${address.area}</p>
+                                    <p class="address">City : ${address.city}</p>
+                                    <p class="address">House : ${address.house}</p>
+                                    <p class="address">Flat : ${address.flat}</p>
+                                    <p class="address">Street : ${address.street}</p>
+                                    <p class="address">Post index : ${address.post_index}</p>
+                                 </span>
+                <#else>
+                    <p>Address info is null. Please checkout for adding information about your address</p>
+                </#if>
                 </div>
             </div>
         </div>

@@ -47,6 +47,8 @@ public class MyUserDetail implements UserDetails {
     }
 
     public String getName() { return usersInfo.getName(); }
+
+    public String getRole() { return  usersInfo.getRole(); }
     /**
      * @return флаг, что срок действия аккаунта еще не истек, он активен
      */

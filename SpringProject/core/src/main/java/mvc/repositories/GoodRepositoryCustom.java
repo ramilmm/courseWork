@@ -33,6 +33,10 @@ public interface GoodRepositoryCustom extends JpaRepository<GoodInfo,Long> {
 
     List<GoodInfo> findByCostBetween(BigDecimal min_cost,BigDecimal max_cost);
 
+    List<GoodInfo> findByCostBetweenAndAuthor(BigDecimal min_cost,BigDecimal max_cost, String author);
+
+    List<GoodInfo> findByCostBetweenAndCountry(BigDecimal min_cost,BigDecimal max_cost, String author);
+
     List<GoodInfo> findByStatusIgnoreCase(String status);
 
     List<GoodInfo> findByAuthorIgnoreCaseAndCentury(String author, Long century);

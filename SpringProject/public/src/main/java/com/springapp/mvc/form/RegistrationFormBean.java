@@ -17,7 +17,7 @@ public class RegistrationFormBean {
     @Email
     private String email;
 
-    @Size(min = 3, max = 13, message = "Введите верный номер телефона")
+    @Size(min = 6, max = 13, message = "Введите верный номер телефона")
     private String phone;
 
 //    @AssertTrue(message = "Примите условия договора")

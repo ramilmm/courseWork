@@ -1,26 +1,24 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class SomeClass {
 
     public static void main(String[] args) {
-        Map<Integer, Integer> lor = new HashMap<Integer, Integer>();
-        lor.put(4, 51);
-        lor.put(5, 52);
-        lor.put(3, 53);
-        lor.put(2, 54);
+        String authors = "Александр Грин;Александр Куприн;";
+        String country = "Германия;Россия;";
+        String minCost = "232";
+        String maxCost = "350";
 
+        String[] author = authors.split(";");
+        String[] countr = country.split(";");
+        Integer max = Integer.parseInt(maxCost);
+        Integer min = Integer.parseInt(minCost);
 
-        Integer maxValue = 0;
-        Integer categoryId = 0;
-        for(Map.Entry map : lor.entrySet()) {
-            if((Integer)map.getValue() > maxValue){
-                maxValue = (Integer)map.getValue();
-                categoryId = (Integer) map.getKey();
-            }
+        for (int i = 0; i < author.length; i++) {
+            System.out.println(author[i]);
         }
-        System.out.println("Most popular category : " + categoryId);
-        System.out.println("It uses : " + lor.get(categoryId) + " times");
+        for (int i = 0; i < countr.length; i++) {
+            System.out.println(countr[i]);
+        }
+        System.out.println(max);
+        System.out.println(min);
     }
 
 

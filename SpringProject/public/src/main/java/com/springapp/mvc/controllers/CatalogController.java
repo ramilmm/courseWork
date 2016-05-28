@@ -5,6 +5,8 @@ import com.springapp.mvc.aspects.annotation.IncludeMenuInfo;
 import mvc.common.CategoryInfo;
 import mvc.common.GoodInfo;
 import mvc.services.CatalogService;
+import mvc.services.GoodService;
+import mvc.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,6 +23,12 @@ public class CatalogController {
 
     @Autowired
     private CatalogService catalogService;
+    @Autowired
+    private GoodService goodService;
+    @Autowired
+    private UserService userService;
+    @Autowired
+    private HttpServletRequest request;
 
     /**
      * Отображение каталога
@@ -56,5 +64,22 @@ public class CatalogController {
     public String mainCatalog(HttpServletRequest request) {
         request.setAttribute("message", "Главная страница каталога");
         return "catalog/catalogPage";
+    }
+
+    @IncludeMenuInfo
+    @RequestMapping(value = "/filter",method = RequestMethod.POST)
+    public String applyFilter(String authors, String country, String cost){
+        String[] buf = cost.split(";");
+        List<GoodInfo> goods = catalogService.filter(authors,country,buf[1],buf[0]);
+        request.setAttribute("goods",goods);
+        List<CategoryInfo> categories = catalogService.getAllChildrens();
+        List<String> auth = goodService.getDistinctElements("Authors");
+        request.setAttribute("authors",auth);
+        List<String> countr = goodService.getDistinctElements("s");
+        request.setAttribute("country",countr);
+        request.setAttribute("categories",categories);
+
+
+        return "catalog/filterCatalog";
     }
 }

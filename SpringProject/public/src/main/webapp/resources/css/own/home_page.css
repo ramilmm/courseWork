@@ -371,6 +371,10 @@ nav styles
     font-family: "RobotoLight";
     list-style-type: none;
 }
+.accordion li {
+    margin-left: -40px;
+    width: 189px;
+}
 .accordion label {
     font-family: "RobotoLight";
     font-size: 15px;

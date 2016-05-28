@@ -8,32 +8,18 @@
     <meta charset="utf-8"/>
 
     <title>Admin page</title>
-    <link rel="stylesheet" href="/resources/css/bootstrap.min.css"/>
-    <script src="/resources/js/bootstrap.min.js"></script>
-
     <script src="/resources/js/jquery-1.9.1.min.js"></script>
+    <script src="/resources/js/bootstrap.min.js"></script>
+    <script src="/resources/js/own/ajax.js"></script>
+
+    <link rel="stylesheet" href="/resources/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="/resources/css/own/adminPage.css"/>
 </head>
 <body>
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="admin-info">
-                <div class="profile-img">
-                    <img src="/resources/images/admin.png" class="img-circle">
-                </div>
-                <div class="profile-name">
-                    <p class="admin-name"><@sec.authentication property="principal.name" /></p>
-                    <ul class="admin-menu">
-                        <li>Show all goods</li>
-                        <li>Show all users</li>
-                        <li>Show all orders</li>
-                        <li><a href="/">Go to home page</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <#include "left-menu.ftl">
         <div class="col-md-9">
             <div class="info-block">
                 <div class="content">

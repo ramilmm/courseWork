@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -64,6 +65,40 @@ public class GoodService {
     public List<GoodInfo> getByCost(BigDecimal min, BigDecimal max){
         return goodRepositoryCustom.findByCostBetween(min,max);
     }
+
+    public List<GoodInfo> checkCount(List<GoodInfo> list){
+        for (GoodInfo g : list){
+            if (g.getCount() == 0){
+                list.remove(g);
+            }
+        }
+        return list;
+    }
+
+    public List<String> getDistinctElements(String s){
+        List<String> result = new ArrayList<String>();
+
+        List<GoodInfo> goods = goodRepositoryCustom.findAll();
+
+        if(s.equals("Authors")) {
+            for (GoodInfo good : goods) {
+                result.add(good.getAuthor());
+            }
+        }else {
+            for (GoodInfo good : goods) {
+                result.add(good.getCountry());
+            }
+        }
+        List<String> buf = new ArrayList<String>();
+        for (int i = 0; i < result.size(); i++) {
+            if ( !buf.contains(result.get(i))){
+                buf.add(result.get(i));
+            }
+        }
+        return buf;
+    }
+
+
 
     public List<GoodInfo> getTop5ByCategory(Long goodId){
         GoodInfo thisGood = goodRepositoryCustom.findById(goodId);
