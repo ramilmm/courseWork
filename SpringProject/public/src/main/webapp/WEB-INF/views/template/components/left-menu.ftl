@@ -33,14 +33,14 @@
                 <div class="filter-item active">
                     <img src="/resources/images/icons/right_arrow.jpg" alt="">
                     <h3 class="filter">Cost</h3>
-                    <input type="text" id="slider" name="slider" value=""/>
+                    <input style="display: block;" type="text" id="slider" name="slider" value=""/>
                 </div>
 
 
-                <input name="cost" id="cost" type="hidden" value="30;350">
+                <input name="cost" id="cost" type="hidden" value="0;500">
                 <input name="authors" id="authors" type="hidden" value="">
                 <input name="country" id="country" type="hidden" value="">
-                <button type="submit">Apply</button>
+                <button type="submit">search</button>
             </form>
         </div>
     </div>

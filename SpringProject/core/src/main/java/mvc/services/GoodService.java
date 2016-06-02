@@ -14,9 +14,8 @@ import java.util.List;
 public class GoodService {
 
 
-
     @Autowired
-    private GoodRepositoryCustom goodRepositoryCustom;
+    public GoodRepositoryCustom goodRepositoryCustom;
 
     public List<GoodInfo> getAll(){
         return goodRepositoryCustom.findAll();

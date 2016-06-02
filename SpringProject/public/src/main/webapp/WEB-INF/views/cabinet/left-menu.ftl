@@ -7,7 +7,7 @@
         <div class="profile-name">
             <p class="admin-name"><a href="/cabinet"><@sec.authentication property="principal.name" /></a></p>
             <ul class="admin-menu">
-                <li><a href="#">Edit profile</a></li>
+                <#--<li><a href="#">Edit profile</a></li>-->
                 <li><a href="/cabinet/orders">My orders</a></li>
                 <li><a href="/">Go to home page</a></li>
             </ul>

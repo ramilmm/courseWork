@@ -40,6 +40,12 @@ public class CatalogController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public String renderCatalog(@PathVariable("id") Long id,
                                 Model model) {
+        List<CategoryInfo> categories = catalogService.getAllChildrens();
+        List<String> auth = goodService.getDistinctElements("Authors");
+        request.setAttribute("authors",auth);
+        List<String> countr = goodService.getDistinctElements("s");
+        request.setAttribute("country",countr);
+        request.setAttribute("categories",categories);
         List<GoodInfo> goods = catalogService.getGoodsByCategoryId(id);
         for (GoodInfo g : goods){
             if (g.getCount() == 0){

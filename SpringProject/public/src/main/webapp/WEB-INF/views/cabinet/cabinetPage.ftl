@@ -38,7 +38,9 @@
                                     <p class="address">Area : ${address.area}</p>
                                     <p class="address">City : ${address.city}</p>
                                     <p class="address">House : ${address.house}</p>
+                                    <#if address.flat??>
                                     <p class="address">Flat : ${address.flat}</p>
+                                    </#if>
                                     <p class="address">Street : ${address.street}</p>
                                     <p class="address">Post index : ${address.post_index}</p>
                                  </span>

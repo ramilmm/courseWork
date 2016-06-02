@@ -14,7 +14,7 @@ public class CheckoutFormBean {
     @NotEmpty(message = "Поле обязательно для заполнения")
     private String city;
 
-    private String flat;
+    private Long flat;
 
     @NotEmpty(message = "Поле обязательно для заполнения")
     private String house;
@@ -31,7 +31,7 @@ public class CheckoutFormBean {
 
     public CheckoutFormBean () {}
 
-    public CheckoutFormBean(String area, String city, String flat, String house, Boolean accept, String post_index, String street) {
+    public CheckoutFormBean(String area, String city, Long flat, String house, Boolean accept, String post_index, String street) {
         this.area = area;
         this.city = city;
         this.flat = flat;
@@ -57,11 +57,11 @@ public class CheckoutFormBean {
         this.city = city;
     }
 
-    public String getFlat() {
+    public Long getFlat() {
         return flat;
     }
 
-    public void setFlat(String flat) {
+    public void setFlat(Long flat) {
         this.flat = flat;
     }
 

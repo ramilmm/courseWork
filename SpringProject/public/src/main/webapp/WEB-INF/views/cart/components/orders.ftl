@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9">
-            <div class="simpleCart_items"></div>
+                <div class="simpleCart_items"></div>
                 <div class="back_link">
                     <a href="/">
                         <img src="/resources/images/icons/back_icon.png" alt="back">

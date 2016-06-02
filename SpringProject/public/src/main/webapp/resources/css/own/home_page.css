@@ -451,8 +451,8 @@ a.img-btn > img {
     min-height: 271px;
 }
 /*.recommendations div {*/
-    /*display: inline-block;*/
-    /*margin-left: 173px;*/
+/*display: inline-block;*/
+/*margin-left: 173px;*/
 /*}*/
 .recommendations h1 {
     font-family: "RobotoMedium", serif;
@@ -526,4 +526,19 @@ a.img-btn > img {
 .book_name:hover {
     color: #fff;
     text-decoration: none;
+}
+
+button {
+    background-color: #fff;
+    border: 1px solid #559cd4;
+    border-radius: 23px;
+    color: #559cd4;
+    font-size: 22px;
+    margin: 14px 69px;
+    padding: 2px 10px 6px;
+    position: relative;
+}
+button:hover{
+    color: #fff;
+    background-color: #559cd4;
 }

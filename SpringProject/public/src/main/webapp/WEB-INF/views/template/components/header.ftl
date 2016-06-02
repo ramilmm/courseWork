@@ -37,7 +37,7 @@
                     <a href="/"><p>Book<span>Store</span></p></a>
                 </div>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-4">
                 <div class="cart_block">
                     <p><img src="/resources/images/icons/cart_icon.png" alt="wish_list">
                         Your cart<span class="simpleCart_quantity"></span><span id="header_items">items</span><br>
@@ -45,12 +45,6 @@
                         <a href="/cart" class="checkout_button">Checkout</a>
                         <a href="javascript:;" class="clearbasket_link">Clear cart</a></p>
 
-                </div>
-            </div>
-            <div class="col-md-1">
-                <div class="wish_list">
-                    <p><a href="#"><img src="/resources/images/icons/wish_list_icon.png" alt="wish_list"></a><span>20</span><br/>
-                        Wish list</p>
                 </div>
             </div>
         </div>

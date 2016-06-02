@@ -9,7 +9,7 @@
 
 <#assign sec=JspTaglibs["http://www.springframework.org/security/tags"]>
 <#include "../template/template.ftl">
-<@mainTemplate title="BookStore" styles=["css/own/home_page.css", "css/ion.rangeSlider.css", "css/ion.rangeSlider.skinHTML5.css"] scripts=["js/own/ajax.js"]/>
+<@mainTemplate title="BookStore" styles=["css/own/home_page.css", "css/ion.rangeSlider.css", "css/ion.rangeSlider.skinHTML5.css"] scripts=["js/own/ajax.js","js/own/takeBook.js"]/>
 <#macro m_body>
     <#include "../template/components/headerCategoryList.ftl" />
 <div class="slider">
@@ -84,22 +84,22 @@
                                         <a href="/good/${good.id}"><img src="${good.image}"></a>
                                         <h4 class="item_name">${good.name}</h4>
                                         <h5>${good.author}</h5>
-                                        <#if (Session.cart.goods)?? && Session.cart.containsGoodId(good.id)>
-                                            <a class="buy_btn" style="background: rgb(280, 124, 83)" href="/cart">Go in
-                                                cart</a>
-                                            <span class="item_price item_price-css"
-                                                  style="border: 3px solid #ff7c53">${good.cost}</span>
-                                        <#else>
+                                        <#--<#if (Session.cart.goods)?? && Session.cart.containsGoodId(good.id)>-->
+                                            <#--<a class="buy_btn" style="background: rgb(280, 124, 83)" href="/cart">Go in-->
+                                                <#--cart</a>-->
+                                            <#--<span class="item_price item_price-css"-->
+                                                  <#--style="border: 3px solid #ff7c53">${good.cost}</span>-->
+                                        <#--<#else>-->
                                             <a href="/cart/add" class="buy_btn js_addToCart item_add"
                                                data-id="${good.id}">Buy</a>
                                             <#if (good.discount != 1)>
-                                                <span class="js_addToCart item_add item_price-css"
+                                                <span data-id="${good.id}" class="js_addToCart item_add item_price-css"
                                                       style="border: 3px solid #ff7c53"><s><i>$${good.cost}</s> </i>
                                                 <b class="item_price">$${(good.cost*good.discount)?int}</b></span>
                                             <#else>
                                                 <span class="item_price item_price-css">$${good.cost}</span>
                                             </#if>
-                                        </#if>
+                                        <#--</#if>-->
                                         <#if (good.discount!=1)>
                                             <img src="/resources/images/icons/sale.png" class="sale"/>
                                         </#if>
@@ -117,12 +117,12 @@
                                             <a href="/good/${good.id}"><img src="${good.image}"></a>
                                             <h4 class="item_name">${good.name}</h4>
                                             <h5>${good.author}</h5>
-                                            <#if (Session.cart.goods)?? && Session.cart.containsGoodId(good.id)>
-                                                <a class="buy_btn item_add" style="background: rgb(280, 124, 83)"
-                                                   href="/cart">Go in cart</a>
-                                                <span class="item_price-css"
-                                                      style="border: 3px solid #ff7c53">$${good.cost}</span>
-                                            <#else>
+                                            <#--<#if (Session.cart.goods)?? && Session.cart.containsGoodId(good.id)>-->
+                                                <#--<a class="buy_btn item_add" style="background: rgb(280, 124, 83)"-->
+                                                   <#--href="/cart">Go in cart</a>-->
+                                                <#--<span class="item_price-css"-->
+                                                      <#--style="border: 3px solid #ff7c53">$${good.cost}</span>-->
+                                            <#--<#else>-->
                                                 <a href="/cart/add" class="buy_btn js_addToCart item_add"
                                                    data-id="${good.id}">Buy</a>
                                                 <#if (good.discount != 1)>
@@ -132,7 +132,7 @@
                                                 <#else>
                                                     <span class="item_price item_price-css">$${good.cost}</span>
                                                 </#if>
-                                            </#if>
+                                            <#--</#if>-->
                                             <#if (good.discount!=1)>
                                                 <img src="/resources/images/icons/sale.png" class="sale"/>
                                             </#if>
@@ -151,12 +151,12 @@
                                             <a href="/good/${good.id}"><img src="${good.image}"></a>
                                             <h4 class="item_name">${good.name}</h4>
                                             <h5>${good.author}</h5>
-                                            <#if (Session.cart.goods)?? && Session.cart.containsGoodId(good.id)>
-                                                <a class="buy_btn item_add" style="background: rgb(280, 124, 83)"
-                                                   href="/cart">Go in cart</a>
-                                                <span class="item_price-css"
-                                                      style="border: 3px solid #ff7c53">$${good.cost}</span>
-                                            <#else>
+                                            <#--<#if (Session.cart.goods)?? && Session.cart.containsGoodId(good.id)>-->
+                                                <#--<a class="buy_btn item_add" style="background: rgb(280, 124, 83)"-->
+                                                   <#--href="/cart">Go in cart</a>-->
+                                                <#--<span class="item_price-css"-->
+                                                      <#--style="border: 3px solid #ff7c53">$${good.cost}</span>-->
+                                            <#--<#else>-->
                                                 <a href="/cart/add" class="buy_btn js_addToCart item_add"
                                                    data-id="${good.id}">Buy</a>
                                                 <#if (good.discount != 1)>
@@ -166,7 +166,7 @@
                                                 <#else>
                                                     <span class="item_price item_price-css">$${good.cost}</span>
                                                 </#if>
-                                            </#if>
+                                            <#--</#if>-->
                                             <#if (good.discount!=1)>
                                                 <img src="/resources/images/icons/sale.png" class="sale"/>
                                             </#if>
@@ -185,14 +185,14 @@
                                             <a href="/good/${good.id}"><img src="${good.image}"></a>
                                             <h4 class="item_name">${good.name}</h4>
                                             <h5>${good.author}</h5>
-                                            <#if (Session.cart.goods)?? && Session.cart.containsGoodId(good.id)>
-                                                <a class="buy_btn item_add" style="background: rgb(280, 124, 83)"
-                                                   href="/cart">Go in cart</a>
-                                                <span class="js_addToCart item_add item_price-css"
-                                                      style="border: 3px solid #ff7c53"><s><i>$${good.cost}</s> </i>
-                                                    <b>$${good.cost*good.discount}</b></span>
+                                            <#--<#if (Session.cart.goods)?? && Session.cart.containsGoodId(good.id)>-->
+                                                <#--<a class="buy_btn item_add" style="background: rgb(280, 124, 83)"-->
+                                                   <#--href="/cart">Go in cart</a>-->
+                                                <#--<span class="js_addToCart item_add item_price-css"-->
+                                                      <#--style="border: 3px solid #ff7c53"><s><i>$${good.cost}</s> </i>-->
+                                                    <#--<b>$${good.cost*good.discount}</b></span>-->
 
-                                            <#else>
+                                            <#--<#else>-->
                                                 <a href="/cart/add" class="buy_btn js_addToCart item_add"
                                                    data-id="${good.id}">Buy</a>
                                                 <#if (good.discount != 1)>
@@ -202,7 +202,7 @@
                                                 <#else>
                                                     <span class="item_price item_price-css">$${good.cost}</span>
                                                 </#if>
-                                            </#if>
+                                            <#--</#if>-->
                                             <#if (good.discount!=1)>
                                                 <img src="/resources/images/icons/sale.png" class="sale"/>
                                             </#if>

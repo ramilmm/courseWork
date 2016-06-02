@@ -20,7 +20,7 @@ public class GoodsUsersService {
     public void add(Goods_users g_u){
         List<Goods_users> list = goods_users.findByUsersInfo(g_u.getUsersInfo());
         for (Goods_users gu : list){
-            if (gu.getUsersInfo().getId().equals(g_u.getUsersInfo().getId())){
+            if (gu.getGoodInfo().getId().equals(g_u.getGoodInfo().getId())){
                 return;
             }
         }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -32,5 +33,9 @@ public class OrderService {
 
     public OrdersInfo getById(Long id){
         return ordersRepositoryCustom.findById(id);
+    }
+
+    public OrdersInfo getByCreationTime(Date date){
+        return ordersRepositoryCustom.findByCreationTime(date);
     }
 }

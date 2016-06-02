@@ -17,4 +17,6 @@ public class FeedbackService {
         feedbackRep.saveAndFlush(feedback);
     }
 
+    public Feedback getById(Long id) { return feedbackRep.findById(id); }
+
 }

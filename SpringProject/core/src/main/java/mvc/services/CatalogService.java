@@ -55,13 +55,14 @@ public class CatalogService {
         List<GoodInfo> result = new ArrayList<GoodInfo>();
         if(authors.isEmpty() && country.isEmpty()){
             result = goodRepositoryCustom.findByCostBetween(new BigDecimal(minCost),new BigDecimal(maxCost));
+            return result;
         }
         String[] author = authors.split(";");
         String[] countr = country.split(";");
         Integer max = Integer.parseInt(maxCost);
         Integer min = Integer.parseInt(minCost);
-        List<GoodInfo> byAuthor = new ArrayList<GoodInfo>();
-        List<GoodInfo> byCountry = new ArrayList<GoodInfo>();
+        List<GoodInfo> pre_result = new ArrayList<GoodInfo>();
+//        List<GoodInfo> pre_result = new ArrayList<GoodInfo>();
 
 
 
@@ -69,35 +70,36 @@ public class CatalogService {
             for (String anAuthor : author) {
                 List<GoodInfo> buf = goodRepositoryCustom.findByCostBetweenAndAuthor(new BigDecimal(min), new BigDecimal(max), anAuthor);
                 for (GoodInfo good : buf) {
-                    if (!byAuthor.contains(good)) {
-                        byAuthor.add(good);
+                    if (!pre_result.contains(good)) {
+                        pre_result.add(good);
                     }
                 }
+//                pre_result = buf;
             }
-            result = byAuthor;
         }
+
         if (authors.isEmpty() && !country.isEmpty()){
             for (String aCountr : countr) {
                 List<GoodInfo> buf = goodRepositoryCustom.findByCostBetweenAndCountry(new BigDecimal(min), new BigDecimal(max), aCountr);
                 for (GoodInfo good : buf) {
-                    if (!byCountry.contains(good)) {
-                        byCountry.add(good);
+                    if (!pre_result.contains(good)) {
+                        pre_result.add(good);
                     }
                 }
+//                pre_result = buf;
             }
-            result = byCountry;
         }
 
         if(!country.isEmpty()) {
 
             for (String aCountr : countr) {
-                for (GoodInfo good : byAuthor) {
-                    if (good.getCountry().equals(aCountr)) {
+                for (GoodInfo good : pre_result) {
+                    if (aCountr.equals(good.getCountry())) {
                         result.add(good);
                     }
                 }
             }
-        }
+        }else result = pre_result;
         return result;
     }
 

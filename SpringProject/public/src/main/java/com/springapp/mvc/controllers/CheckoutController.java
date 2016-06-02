@@ -5,10 +5,7 @@ import com.springapp.mvc.form.CheckoutFormBean;
 import mvc.common.AddressInfo;
 import mvc.common.OrdersInfo;
 import mvc.common.UsersInfo;
-import mvc.services.AddressService;
-import mvc.services.CartService;
-import mvc.services.OrderService;
-import mvc.services.UserService;
+import mvc.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -37,6 +34,8 @@ public class CheckoutController {
     private OrderService orderService;
     @Autowired
     private CartService cartService;
+    @Autowired
+    private OrderGoodsService service;
 
     private Long qty;
     private BigDecimal sum;
@@ -54,11 +53,23 @@ public class CheckoutController {
                                  String total_sum){
         qty = Long.parseLong(total_quantity);
         sum = new BigDecimal(Integer.parseInt(total_sum));
-        UsersInfo user = userService.getByLogin(request.getUserPrincipal().getName());
+        UsersInfo user;
+        if (request.getRemoteUser() != null) {
+            user = userService.getByLogin(request.getUserPrincipal().getName());
+        }else return "redirect:/login";
         AddressInfo address = addressService.getByUserId(user.getId());
         if (address != null ){
-            orderService.add(new OrdersInfo(user,address,new Date(), sum ,qty,"Обработка","Наложенный платёж"));
-            cartService.delete(user.getId());
+            OrdersInfo order = new OrdersInfo();
+            order.setAddress(address);
+            order.setUser(user);
+            Date curDate = new Date();
+            order.setCreationTime(curDate);
+            order.setTotal_sum(sum);
+            order.setTotal_count(qty);
+            order.setStatus("Обработка");
+            order.setPay_type("Наложеный платёж");
+            orderService.add(order);
+            service.add(orderService.getByCreationTime(curDate).getId(),request.getSession());
             return "redirect:/";
         }
         return "redirect:/cart/checkout";
@@ -81,8 +92,7 @@ public class CheckoutController {
                 checkoutFormBean.getHouse(), checkoutFormBean.getFlat(), checkoutFormBean.getPost_index(),
                 checkoutFormBean.getArea(), user);
         addressService.add(address);
-        orderService.add(new OrdersInfo(user,address,new Date(), sum ,qty,"Обработка","Наложенный платёж"));
-        cartService.delete(user.getId());
+        orderService.add(new OrdersInfo(user,address,new Date(), sum, qty,"Обработка","Наложенный платёж"));
         return "redirect:/";
     }
 

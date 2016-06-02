@@ -17,10 +17,10 @@
                     <a href="/good/${good.id}"><img src="${good.image}" alt="${good.name}"></a>
                     <h4 class="item_name">${good.name}</h4>
                     <h5>${good.author}</h5>
-                    <#if (Session.cart.goods)?? && Session.cart.containsGoodId(good.id)>
-                        <a class="buy_btn" style="background: rgb(280, 124, 83)" href="/cart">Go in cart</a>
-                        <span class="item_price" style="border: 3px solid #ff7c53">${good.cost}</span>
-                    <#else>
+                    <#--<#if (Session.cart.goods)?? && Session.cart.containsGoodId(good.id)>-->
+                        <#--<a class="buy_btn" style="background: rgb(280, 124, 83)" href="/cart">Go in cart</a>-->
+                        <#--<span class="item_price" style="border: 3px solid #ff7c53">${good.cost}</span>-->
+                    <#--<#else>-->
                         <a href="/cart/add" class="buy_btn js_addToCart item_add"
                            data-id="${good.id}">Buy</a>
                         <#if (good.discount != 1)>
@@ -31,7 +31,7 @@
                             <span class="item_price item_price-css">$${good.cost}</span>
                         </#if>
 
-                    </#if>
+                    <#--</#if>-->
                 </div>
             </#list>
             <#else>

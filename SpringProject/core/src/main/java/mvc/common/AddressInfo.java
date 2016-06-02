@@ -21,7 +21,7 @@ public class AddressInfo {
     private String house;
 
     @Column(length = 25)
-    private String flat;
+    private Long flat;
 
     @Column(length = 6)
     private String post_index;
@@ -35,7 +35,7 @@ public class AddressInfo {
 
     public AddressInfo () {}
 
-    public AddressInfo(String city, String street, String house, String flat, String post_index, String area, UsersInfo user) {
+    public AddressInfo(String city, String street, String house, Long flat, String post_index, String area, UsersInfo user) {
         this.city = city;
         this.street = street;
         this.house = house;
@@ -77,11 +77,11 @@ public class AddressInfo {
         this.house = house;
     }
 
-    public String getFlat() {
+    public Long getFlat() {
         return flat;
     }
 
-    public void setFlat(String flat) {
+    public void setFlat(Long flat) {
         this.flat = flat;
     }
 

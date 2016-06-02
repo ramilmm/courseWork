@@ -138,12 +138,20 @@ public class UserService {
             topCategoryGood = thisCategoryGoods.get(countCategory);
 
             topAuthorGood = thisAuthorGoods.get(countAuthor);
-            while (topCategoryGood.getId().equals(topAuthorGood.getId())) {
-                topAuthorGood = thisAuthorGoods.get(++countAuthor);
+            if (topAuthorGood == null) return null;
+            while (topCategoryGood.getId().equals(topAuthorGood != null ? topAuthorGood.getId() : null)) {
+                countAuthor += 1;
+                if(countAuthor != thisAuthorGoods.size()) {
+                    topAuthorGood = thisAuthorGoods.get(countAuthor);
+                    if (topAuthorGood == null) return null;
+                }else topAuthorGood = null;
             }
             topCenturyGood = thisCenturyGoods.get(countCentury);
-            while (topCenturyGood.getId().equals(topCategoryGood.getId()) || topCenturyGood.getId().equals(topAuthorGood.getId())) {
-                topCenturyGood = thisCenturyGoods.get(++countCentury);
+            while ((topCenturyGood != null && topCenturyGood.getId().equals(topCategoryGood.getId())) || (topCenturyGood != null && topCenturyGood.getId().equals(topAuthorGood != null ? topAuthorGood.getId() : null))) {
+                countCentury += 1;
+                if (countCentury != thisCenturyGoods.size()) {
+                    topCenturyGood = thisCenturyGoods.get(++countCentury);
+                }else topCenturyGood = null;
             }
         }else {
             return null;
@@ -151,6 +159,11 @@ public class UserService {
         result.add(topCategoryGood);
         result.add(topAuthorGood);
         result.add(topCenturyGood);
+
+        for (GoodInfo aResult : result) {
+            if (aResult == null)
+                return null;
+        }
 
         return result;
 

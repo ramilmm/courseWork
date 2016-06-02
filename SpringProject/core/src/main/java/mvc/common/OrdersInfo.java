@@ -24,7 +24,7 @@ public class OrdersInfo {
     private AddressInfo address;
 
     @Column
-    private Date creation_time;
+    private Date creationTime;
 
     @Column
     private BigDecimal Total_sum;
@@ -40,10 +40,10 @@ public class OrdersInfo {
 
     public OrdersInfo() {}
 
-    public OrdersInfo(UsersInfo user, AddressInfo address, Date creation_time, BigDecimal total_sum, Long total_count, String status, String pay_type) {
+    public OrdersInfo(UsersInfo user, AddressInfo address, Date creationTime, BigDecimal total_sum, Long total_count, String status, String pay_type) {
         this.user = user;
         this.address = address;
-        this.creation_time = creation_time;
+        this.creationTime = creationTime;
         this.Total_sum = total_sum;
         this.Total_count = total_count;
         this.status = status;
@@ -74,12 +74,12 @@ public class OrdersInfo {
         this.address = address;
     }
 
-    public Date getCreation_time() {
-        return creation_time;
+    public Date getCreationTime() {
+        return creationTime;
     }
 
-    public void setCreation_time(Date creation_time) {
-        this.creation_time = creation_time;
+    public void setCreationTime(Date creation_time) {
+        this.creationTime = creation_time;
     }
 
     public BigDecimal getTotal_sum() {
@@ -113,4 +113,5 @@ public class OrdersInfo {
     public void setPay_type(String pay_type) {
         this.pay_type = pay_type;
     }
+
 }

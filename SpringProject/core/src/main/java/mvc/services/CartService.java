@@ -1,19 +1,14 @@
 package mvc.services;
 
-import mvc.common.Cart;
 import mvc.common.CartInfo;
-import mvc.common.UsersInfo;
-import mvc.repositories.CartsRepositoryCustom;
 import mvc.repositories.GoodRepositoryCustom;
 import mvc.repositories.UserRepositoryCustom;
 import mvc.util.Constants;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -22,8 +17,6 @@ public class CartService {
 
     @Autowired
     private UserRepositoryCustom userRepositoryCustom;
-    @Autowired
-    private CartsRepositoryCustom cartRepository;
     @Autowired
     private GoodRepositoryCustom goodRepositoryCustom;
 
@@ -51,33 +44,5 @@ public class CartService {
         session.setAttribute(Constants.SESSION_CART, cart);
     }
 
-    @Transactional
-    public void addInCart(Long userId,Long goodId, Long count){
-            cartRepository.saveAndFlush(new Cart(userRepositoryCustom.findById(userId),goodRepositoryCustom.findById(goodId),count));
-    }
-
-    public List<Cart> getByUser(UsersInfo user){
-        return cartRepository.findByUser_id(user);
-    }
-
-    @Transactional
-    public void update(Cart cart){
-        cartRepository.save(cart);
-    }
-
-    @Transactional
-    public void addInCart(Cart cart){
-        cartRepository.saveAndFlush(cart);
-    }
-
-    @Transactional
-    public void delete(Long user_id, Long good_id){
-        cartRepository.delete(cartRepository.findByUser_idAndGood_id(userRepositoryCustom.findById(user_id),goodRepositoryCustom.findById(good_id)));
-    }
-
-    @Transactional
-    public void delete(Long userId){
-        cartRepository.delete(cartRepository.findByUser_id(userRepositoryCustom.findById(userId)));
-    }
 
 }

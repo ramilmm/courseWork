@@ -3,7 +3,8 @@ $(document).ready(function () {
 
     $(document).on('click', '.filter-item', function () {
         console.log('SET VALUE');
-        // event.preventDefault();
+
+        //get checked authors
         var authors = $('.author input:checked');
         var authorsArray = '';
         var count = authors.size()-1;
@@ -12,6 +13,8 @@ $(document).ready(function () {
             count -= 1;
         }
         $('#authors').val(authorsArray);
+
+        //get checked country
         var country = $('.country input:checked');
         var countryArray = '';
         var c = country.size()-1;
@@ -20,6 +23,8 @@ $(document).ready(function () {
             c -= 1;
         }
         $('#country').val(countryArray);
+
+        //get min and max cost
         var cost = $('#cost')[0].value;
         var costArray =  cost.split(';');
         var min =  costArray[0];
@@ -151,6 +156,24 @@ $(document).ready(function () {
                 if (data == 'ok') {
                     $this.removeClass('js_addToCart item_add').text('Go in cart').css('background', 'rgb(280, 124, 83)').attr('href', '/cart');
                 }
+            },
+            error: function () {    // На сервере произошла ошибка
+                console.log(data);
+                alert('Приносим извинения.<br/>На сервере произошла ошибка');
+            }
+        });
+    });
+    
+
+    $(document).on('click', '.js_deleteFromCart', function () {
+        event.preventDefault();
+        var $this = $(this);
+        $.ajax({
+            type: 'POST',
+            url: '/cart/delete',
+            data: {goodId: $this.data('id')},
+            success: function (data, status) {  // успешное завершение работы
+                console.log('/cart/add result: data=' + data + '; status=' + status);
             },
             error: function () {    // На сервере произошла ошибка
                 console.log(data);

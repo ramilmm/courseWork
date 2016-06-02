@@ -9,6 +9,10 @@ body, header {
 .top_line a {
     color: #fff;
 }
+span#total {
+    font-weight: 700;
+    font-size: 23px;
+}
 .top_line a:hover {
     text-decoration: none;
 }
@@ -148,7 +152,7 @@ body, header {
 .good_list {
     background-color: #fff;
     max-width: 960px;
-    min-height: 715px;
+    min-height: 964px;
     border: 1px solid #dddddd;
 }
 .good_item {
@@ -413,7 +417,7 @@ a.buy_btn {
     border-radius: 3px;
     background-color: #f05356;
 }
-span.item_price {
+span.item_price-css {
     border: 3px solid #f05356;
     font-size: 19px;
     margin-left: -5px;
@@ -422,4 +426,18 @@ a.img-btn > img {
     max-height: 142px;
     max-width: 101px;
     margin-bottom: 15px;
+}
+button {
+    background-color: #fff;
+    border: 1px solid #559cd4;
+    border-radius: 23px;
+    color: #559cd4;
+    font-size: 22px;
+    margin: 14px 69px;
+    padding: 2px 10px 6px;
+    position: relative;
+}
+button:hover{
+    color: #fff;
+    background-color: #559cd4;
 }

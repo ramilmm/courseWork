@@ -3,6 +3,7 @@ package com.springapp.mvc.controllers;
 import mvc.common.OrdersInfo;
 import mvc.common.UsersInfo;
 import mvc.services.AddressService;
+import mvc.services.OrderGoodsService;
 import mvc.services.OrderService;
 import mvc.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,8 @@ public class CabinetController {
     private UserService userService;
     @Autowired
     private AddressService addressService;
+    @Autowired
+    private OrderGoodsService service;
 
     @RequestMapping(method = RequestMethod.GET)
     public String renderCabinetPage() {
@@ -36,6 +39,7 @@ public class CabinetController {
     public String deleteOrder(Long orderId) {
         OrdersInfo order = orderService.getById(orderId);
         orderService.delete(order);
+        service.delete(orderId);
         return "cabinet/ajaxOrder";
     }
 

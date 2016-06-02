@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // $(document).on('click', '.send_btn', function () {
-    //    
+    //
     //     var authors = $('.author input:checked');
     //     var authorsArray = '';
     //     var count = authors.size()-1;
@@ -16,9 +16,16 @@ $(document).ready(function () {
     //     // var authors = $('.author input:checked').serialize();
     //     // console.log(authors);
     //     // var country = $('.country input:checked').serialize();
-    //     // console.log(country);        
+    //     // console.log(country);
     // });
 
+    // $(document).on('click', '.js_addToCart', function () {
+    //     var goodId = $(this).data('id');
+    //     var input = $('#goods');
+    //     input.value = input.value + ';' + goodId;
+    //     console.log(input.value)
+    // });
+    
     $("#carousel").owlCarousel({
         autoPlay: 2000,
         items: 1,
@@ -90,8 +97,8 @@ $(document).ready(function () {
         type: "double",
         min: 0,
         max: 500,
-        from: 30,
-        to: 350,
+        from: 0,
+        to: 500,
         prefix: "$",
         grid: true,
         force_edges: true

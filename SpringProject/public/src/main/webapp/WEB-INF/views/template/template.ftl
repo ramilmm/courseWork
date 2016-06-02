@@ -7,7 +7,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/css/fonts.css">
+    <link rel="stylesheet" href="/resources/css/own/fonts.css">
     <link rel="stylesheet" href="/resources/css/media.css">
     <link rel="stylesheet" href="/resources/css/owl.carousel.css">
     <link rel="stylesheet" href="/resources/css/owl.theme.css">
